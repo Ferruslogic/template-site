@@ -50,6 +50,10 @@ h1 {
     font-size: 1.3em;
 }
 
+.menu-icon {
+    display: none;
+}
+
 .navegation ul {
     margin: 0;
     padding: 0;
@@ -83,9 +87,19 @@ h1 {
 }
 
 @media only screen and (max-width: 760) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
     .navegation {
         width: 100%;
         margin-top: 1rem;
+    }
+    .navegation ul {
+        display: none;
+    }
+    .navegation ul.show {
+        display: block;
     }
     .navegation ul li {
         display: block;
