@@ -3,8 +3,9 @@ Vue.use(VueRouter)
 
 let component1 = {
     template: `
-    <div class="title">
-    Sección Inicio
+    <div>
+  <div  class="title">Inicio</div>
+    
         <blockquote class="blockquote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at.</blockquote>
 
         <v-timeline>
@@ -31,7 +32,7 @@ let component1 = {
 let component2 = {
     template: `
     <div> 
-    <div class="title">Sección Compras</div>
+    <div class="title">Blog</div>
     <div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at.</p>
@@ -42,7 +43,7 @@ let component2 = {
 
 let component3 = {
     template: `
-    <div> <div class="title"> Sección Ventas</div>
+    <div> <div class="title">Softwares</div>
     <v-hover>
     <v-card
       slot-scope="{ hover }"
@@ -88,6 +89,7 @@ let component3 = {
       </v-card-text>
     </v-card>
   </v-hover>
+
     </div>
     `
 }
@@ -97,10 +99,10 @@ let router = new VueRouter({
         path: '/',
         component: component1,
     }, {
-        path: '/compras',
+        path: '/blog',
         component: component2,
     }, {
-        path: '/ventas',
+        path: '/softwares',
         component: component3,
     }, {
         path: '*',
@@ -113,7 +115,7 @@ new Vue({
         router,
         vuetify: new Vuetify(),
         data: () => ({
-            icons: ['home', 'point-of-sale', 'shopping'],
+            icons: ['home', 'book', 'archive-arrow-down'],
             drawer: false,
             appName: "FerrusLogic S.A"
         })

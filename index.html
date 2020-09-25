@@ -16,16 +16,16 @@
 
         <v-app>
 
-            <v-navigation-drawer v-model="drawer" absolute clipped temporary app floating>
-                <v-list-item>
-                    <v-list-item-avatar>
-                        <v-img src="./assets/images/logo.png" style="width:1.0em;"></v-img>
-                    </v-list-item-avatar>
+            <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
+                <v-img :aspect-ratio="7/4" src="./assets/images/bg-menu.jpg">
+                    <v-row align-end class="lightbox white--text pa-2 fill-height">
+                        <p> Educacion y desarroll</p>
+                    </v-row>
+                </v-img>
 
-                    <v-list-item-content>
-                        <v-list-item-title>{{ appName}}</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
+
+
+
 
                 <v-list>
                     <v-list-item :to="{path: '/'}">
@@ -37,53 +37,49 @@
                         </v-list-item-content>
                     </v-list-item>
 
-                    <v-list-item :to="{path: '/compras'}">
+                    <v-list-item :to="{path: '/blog'}">
                         <v-list-item-action>
                             <v-icon>mdi-{{ icons[1] }}</v-icon>
                         </v-list-item-action>
                         <v-list-item-content>
-                            <v-list-item-title>Compras</v-list-item-title>
+                            <v-list-item-title>Blog</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
 
-                    <v-list-item :to="{path: '/ventas'}">
+                    <v-list-item :to="{path: '/softwares'}">
                         <v-list-item-action>
                             <v-icon>mdi-{{ icons[2] }}</v-icon>
                         </v-list-item-action>
                         <v-list-item-content>
-                            <v-list-item-title>Ventas</v-list-item-title>
+                            <v-list-item-title>Softwares</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
 
                 </v-list>
 
-                <template v-slot:append>
-                    <div class="pa-2 blue-grey">
-                        <v-btn block>Contactar</v-btn>
-                    </div>
-                </template>
-            </v-navigation-drawer dark>
+            </v-navigation-drawer>
 
             <v-app-bar class="orange accent-4 white--text" app clipped-left hide-on-scroll>
                 <v-app-bar-nav-icon @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
-                <v-toolbar-title> {{appName}}</v-toolbar-title>
+                <v-toolbar-title> {{appName}} &copy;</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <!--
-                    <v-toolbar-items>
-                    <img src="./assets/images/logo-Ferrus-Logic.svg" style="width:1.0em;">
-                </v-toolbar-items> 
-                 -->
+
+                <v-btn link text retain-focus-on-click ripple> Modo Off </v-btn>
+
             </v-app-bar color="orange accent-4" dense dark>
 
 
-
-            <v-content>
-                <v-container fluid>
-                    <v-fade-transition mode="out-in">
-                        <router-view></router-view>
-                    </v-fade-transition>
-                </v-container>
-            </v-content>
+            <!-- Sizes your content based upon application components -->
+            <v-main>
+                <!-- Provides the application the proper gutter -->
+                <v-content>
+                    <v-container fluid>
+                        <v-fade-transition mode="out-in">
+                            <router-view></router-view>
+                        </v-fade-transition>
+                    </v-container>
+                </v-content>
+            </v-main>
 
             <v-footer class="pa-3">
                 <v-layout justify-center row wrap>
