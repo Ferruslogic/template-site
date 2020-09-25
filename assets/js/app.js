@@ -1,5 +1,6 @@
 Vue.use(VueRouter)
 
+
 let component1 = {
     template: `
     <div class="title">
@@ -38,6 +39,7 @@ let component2 = {
     </div>
     `
 }
+
 let component3 = {
     template: `
     <div> <div class="title"> Sección Ventas</div>
@@ -113,7 +115,7 @@ new Vue({
         data: () => ({
             icons: ['home', 'point-of-sale', 'shopping'],
             drawer: false,
-            appName: "FerrusLogic"
+            appName: "FerrusLogic S.A"
         })
     },
     Vue.use(Vuetify, {
