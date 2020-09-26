@@ -15,6 +15,7 @@
 <body style="color: white; background-color: white;">
 
     <div id="app">
+
         <noscript>
             <strong>We're sorry but theme-blog doesn't work properly without JavaScript enabled. Please enable it to
                 continue.</strong>
@@ -94,11 +95,26 @@
 
                 <div class="d-none d-md-block">
                     <v-spacer></v-spacer>
-                    <v-btn :to="{path: '/'}" text flat link>Inicio</v-btn>
-                    <v-btn :to="{path: '/blog'}" text flat link>Blog</v-btn>
-                    <v-btn :to="{path: '/softwares'}" text flat link>Proyectos</v-btn>
-                    <v-btn :to="{path: '/about'}" text flat link>Sobre nosotros</v-btn>
-                    <v-btn :to="{path: '/contact'}" text flat link>Contacto</v-btn>
+
+                    <v-btn :to="{path: '/'}" class="subtitle-1 text-capitalize font-weight-light" text dark flat>
+                        Inicio
+                    </v-btn>
+
+                    <v-btn :to="{path: '/blog'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
+                        Blog
+                    </v-btn>
+
+                    <v-btn :to="{path: '/softwares'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
+                        Proyectos
+                    </v-btn>
+
+                    <v-btn :to="{path: '/about'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
+                        Sobre nosotros
+                    </v-btn>
+
+                    <v-btn :to="{path: '/contact'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
+                        Contacto
+                    </v-btn>
                 </div>
 
 
