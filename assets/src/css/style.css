@@ -1,0 +1,5 @@
+/* Para que el menu en su version mobil no sea afectado por es scroll */
+
+.sticky-top {
+    position: fixed;
+}

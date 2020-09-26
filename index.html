@@ -3,32 +3,30 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <!--
-    <link href="./assets/css/fonts/google/css.css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
-    -->
-    <link rel="stylesheet" href="./assets/fonts/materialdesignicons/css/materialdesignicons.min.css">
-    <link href="./assets/css/vuetify/vuetify.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="./assets/css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Roboto:100,900|Material+Icons'>
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css'>
+    <link href="./assets/src/css/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/src/css/style.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body style="color: white; background-color: white;">
+
     <div id="app">
+        <noscript>
+            <strong>We're sorry but theme-blog doesn't work properly without JavaScript enabled. Please enable it to
+                continue.</strong>
+        </noscript>
+
 
         <v-app>
 
             <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
-                <v-img :aspect-ratio="7/4" src="./assets/images/bg-menu.jpg">
-                    <v-row align-end class="lightbox white--text pa-2 fill-height">
-                        <p> Educacion y desarroll</p>
-                    </v-row>
+                <v-img :aspect-ratio="7/3" src="./assets/public/images/bg-menu.png">
+
                 </v-img>
-
-
-
-
 
                 <v-list>
                     <v-list-item :to="{path: '/'}">
@@ -76,25 +74,47 @@
                         </v-list-item-content>
                     </v-list-item>
                 </v-list>
+                <v-spacer></v-spacer>
+
 
             </v-navigation-drawer>
 
-            <v-app-bar class="orange accent-4 white--text" app clipped-left hide-on-scroll>
-                <v-app-bar-nav-icon @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
-                <v-toolbar-title> {{appName}} &copy;</v-toolbar-title>
+            <v-app-bar class="orange accent-4 white--text v-sheet theme--dark v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat>
+                <v-app-bar-nav-icon class="d-md-none" @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
+
+                <v-toolbar-title class="font-weight-bold headline">
+                    {{appName}} &copy;
+                </v-toolbar-title>
+
                 <v-spacer></v-spacer>
 
-                <v-btn link text retain-focus-on-click ripple> Modo Off </v-btn>
 
-            </v-app-bar color="orange accent-4">
+
+
+
+                <div class="d-none d-md-block">
+                    <v-spacer></v-spacer>
+                    <v-btn :to="{path: '/'}" text flat link>Inicio</v-btn>
+                    <v-btn :to="{path: '/blog'}" text flat link>Blog</v-btn>
+                    <v-btn :to="{path: '/softwares'}" text flat link>Proyectos</v-btn>
+                    <v-btn :to="{path: '/about'}" text flat link>Sobre nosotros</v-btn>
+                    <v-btn :to="{path: '/contact'}" text flat link>Contacto</v-btn>
+                </div>
+
+
+                <v-switch @click="$vuetify.theme.dark" v-model="$vuetify.theme.dark" class="ma-2 d-none d-md-block" label="Modo oscuro"></v-switch>
+
+
+            </v-app-bar>
+
+
 
 
 
             <!-- Provides the application the proper gutter -->
+
+            <!--Main page-->
             <v-main>
-
-
-
                 <v-container fluid>
                     <v-fade-transition mode="out-in">
                         <router-view></router-view>
@@ -102,6 +122,7 @@
                 </v-container>
             </v-main>
 
+            <!--Footer-->
             <v-footer class="pa-3">
                 <v-layout justify-center row wrap>
                     <div> {{appName}} &copy; {{ new Date().getFullYear() }} </div>
@@ -114,21 +135,24 @@
 
 
     <!-- Vues -->
-    <script src="./assets/js/vuejs/vue.js"></script>
-    <script src="./assets/js/vuetify/vuetify.js"></script>
-    <script src="./assets/js/router/vue-router.js"></script>
+    <script src="./assets/src/js/vue.js"></script>
+    <script src="./assets/src/js/vuetify.js"></script>
+    <script src="./assets/src/js/vue-router.js"></script>
 
     <!-- Component -->
+    <script src="./assets/src/components/test_component.js"></script>
+
+
 
     <!-- Pages -->
-    <script src="./assets/pages/home.vue.js"></script>
-    <script src="./assets/pages/blog.vue.js"></script>
-    <script src="./assets/pages/softwares.vue.js"></script>
-    <script src="./assets/pages/about.vue.js"></script>
-    <script src="./assets/pages/contact.vue.js"></script>
+    <script src="./assets/src/pages/home.vue.js"></script>
+    <script src="./assets/src/pages/blog.vue.js"></script>
+    <script src="./assets/src/pages/softwares.vue.js"></script>
+    <script src="./assets/src/pages/about.vue.js"></script>
+    <script src="./assets/src/pages/contact.vue.js"></script>
 
     <!-- App -->
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/src/js/app.js"></script>
 
 </body>
 
