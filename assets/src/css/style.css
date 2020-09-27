@@ -1,5 +1,11 @@
-/* Para que el menu en su version mobil no sea afectado por es scroll */
+@import url('../css/pages/home.css');
+
+/* Para que el menú en su versión móvil no sea afectado por el scroll */
 
 .sticky-top {
     position: fixed;
+}
+
+#top-bar {
+    z-index: 1003
 }

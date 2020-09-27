@@ -5,129 +5,147 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
-    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Roboto:100,900|Material+Icons'>
-    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css'>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Roboto:100,900|Material+Icons'> -->
+    <link href="./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="./assets/src/css/vuetify.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/src/css/style.css" rel="stylesheet">
+    <link href="./assets/src/css/style.css" rel="stylesheet">
+
+
+    <!-- Vues -->
+    <script src="./assets/src/js/vue.js"></script>
+    <script src="./assets/src/js/vuex.js"></script>
+    <script src="./assets/src/js/vuetify.js"></script>
+    <script src="./assets/src/js/vue-router.js"></script>
+
+    <!-- Pages -->
+    <script src="./assets/src/pages/home.vue.js"></script>
+    <script src="./assets/src/pages/blog.vue.js"></script>
+    <script src="./assets/src/pages/software.vue.js"></script>
+    <script src="./assets/src/pages/about.vue.js"></script>
+    <script src="./assets/src/pages/contact.vue.js"></script>
+
+
 
 </head>
 
-<body style="color: white; background-color: white;">
+<body>
 
     <div id="app">
+        <title>{{appName}}</title>
 
         <noscript>
-            <strong>We're sorry but theme-blog doesn't work properly without JavaScript enabled. Please enable it to
-                continue.</strong>
+            <strong>
+                We're sorry but theme-blog doesn't work properly without JavaScript enabled. Please enable it to
+                continue.
+            </strong>
         </noscript>
 
 
         <v-app>
+            <div id="top-bar">
+                <!-- Menú móvil -->
+                <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
+                    <v-img :aspect-ratio="7/3" src="./assets/public/images/bg-menu.png">
 
-            <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
-                <v-img :aspect-ratio="7/3" src="./assets/public/images/bg-menu.png">
+                    </v-img>
 
-                </v-img>
+                    <v-list>
+                        <v-list-item :to="{path: '/'}">
+                            <v-list-item-action>
+                                <v-icon>mdi-{{ icons[0] }}</v-icon>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                                <v-list-item-title>Home</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
 
-                <v-list>
-                    <v-list-item :to="{path: '/'}">
-                        <v-list-item-action>
-                            <v-icon>mdi-{{ icons[0] }}</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-content>
-                            <v-list-item-title>Inicio</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
+                        <v-list-item :to="{path: '/blog'}">
+                            <v-list-item-action>
+                                <v-icon>mdi-{{ icons[1] }}</v-icon>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                                <v-list-item-title>Blog</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
 
-                    <v-list-item :to="{path: '/blog'}">
-                        <v-list-item-action>
-                            <v-icon>mdi-{{ icons[1] }}</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-content>
-                            <v-list-item-title>Blog</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
+                        <v-list-item :to="{path: '/software'}">
+                            <v-list-item-action>
+                                <v-icon>mdi-{{ icons[2] }}</v-icon>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                                <v-list-item-title>Projects</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
 
-                    <v-list-item :to="{path: '/softwares'}">
-                        <v-list-item-action>
-                            <v-icon>mdi-{{ icons[2] }}</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-content>
-                            <v-list-item-title>Softwares</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
+                        <v-list-item :to="{path: '/about'}">
+                            <v-list-item-action>
+                                <v-icon>mdi-{{ icons[3] }}</v-icon>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                                <v-list-item-title>About</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
 
-                    <v-list-item :to="{path: '/about'}">
-                        <v-list-item-action>
-                            <v-icon>mdi-{{ icons[3] }}</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-content>
-                            <v-list-item-title>About</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
+                        <v-list-item :to="{path: '/contact'}">
+                            <v-list-item-action>
+                                <v-icon>mdi-{{ icons[4] }}</v-icon>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                                <v-list-item-title>Contact</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-list>
 
-                    <v-list-item :to="{path: '/contact'}">
-                        <v-list-item-action>
-                            <v-icon>mdi-{{ icons[4] }}</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-content>
-                            <v-list-item-title>Contact</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list>
-                <v-spacer></v-spacer>
+                    <v-spacer></v-spacer>
+                </v-navigation-drawer>
 
-
-            </v-navigation-drawer>
-
-            <v-app-bar class="orange accent-4 white--text v-sheet theme--dark v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat>
-                <v-app-bar-nav-icon class="d-md-none" @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
-
-                <v-toolbar-title class="font-weight-bold headline">
-                    {{appName}} &copy;
-                </v-toolbar-title>
-
-                <v-spacer></v-spacer>
+                <!-- Top Bar -->
+                <v-app-bar class="white--text v-sheet v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat>
+                    <v-app-bar-nav-icon class="d-md-none" @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
 
 
+                    <!-- Logo -->
+                    <v-img class="mx-2" :src="logoPath" max-height="90" max-width="190" contain></v-img>
 
-
-
-                <div class="d-none d-md-block">
+                    <!-- Separador -->
                     <v-spacer></v-spacer>
 
-                    <v-btn :to="{path: '/'}" class="subtitle-1 text-capitalize font-weight-light" text dark flat>
-                        Inicio
-                    </v-btn>
-
-                    <v-btn :to="{path: '/blog'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
-                        Blog
-                    </v-btn>
-
-                    <v-btn :to="{path: '/softwares'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
-                        Proyectos
-                    </v-btn>
-
-                    <v-btn :to="{path: '/about'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
-                        Sobre nosotros
-                    </v-btn>
-
-                    <v-btn :to="{path: '/contact'}" class="subtitle-1 text-capitalize font-weight-light" text dark>
-                        Contacto
-                    </v-btn>
-                </div>
-
-
-                <v-switch @click="$vuetify.theme.dark" v-model="$vuetify.theme.dark" class="ma-2 d-none d-md-block" label="Modo oscuro"></v-switch>
-
-
-            </v-app-bar>
+                    <!-- btn nav -->
+                    <div class="d-none d-md-block mr-3">
+                        <menu-item v-for="(menuitem,index) in menuitems" :path="menuitem.path" :label="menuitem.label">
+                        </menu-item>
+                    </div>
 
 
 
+                    <!--Dark mode button-->
+                    <div>
+                        <v-tooltip v-if="!$vuetify.theme.dark" bottom>
+                            <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" color="info" small fab
+                                        @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                                        <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
+                                    </v-btn>
+                                </template>
+                            <span>Dark Mode On</span>
+                        </v-tooltip>
 
+                        <v-tooltip v-else bottom>
+                            <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" color="info" small fab
+                                        @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                                        <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
+                                    </v-btn>
+                                </template>
+                            <span>Dark Mode Off</span>
+                        </v-tooltip>
 
-            <!-- Provides the application the proper gutter -->
+                    </div>
+                    <!---------------->
+
+                </v-app-bar>
+            </div>
 
             <!--Main page-->
             <v-main>
@@ -139,7 +157,7 @@
             </v-main>
 
             <!--Footer-->
-            <v-footer class="pa-3">
+            <v-footer class="pa-8">
                 <v-layout justify-center row wrap>
                     <div> {{appName}} &copy; {{ new Date().getFullYear() }} </div>
                 </v-layout>
@@ -148,24 +166,6 @@
 
 
     </div>
-
-
-    <!-- Vues -->
-    <script src="./assets/src/js/vue.js"></script>
-    <script src="./assets/src/js/vuetify.js"></script>
-    <script src="./assets/src/js/vue-router.js"></script>
-
-    <!-- Component -->
-    <script src="./assets/src/components/test_component.js"></script>
-
-
-
-    <!-- Pages -->
-    <script src="./assets/src/pages/home.vue.js"></script>
-    <script src="./assets/src/pages/blog.vue.js"></script>
-    <script src="./assets/src/pages/softwares.vue.js"></script>
-    <script src="./assets/src/pages/about.vue.js"></script>
-    <script src="./assets/src/pages/contact.vue.js"></script>
 
     <!-- App -->
     <script src="./assets/src/js/app.js"></script>
