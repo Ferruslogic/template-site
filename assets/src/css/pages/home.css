@@ -1,4 +1,4 @@
-/* Imagenes del hero */
+/* Imágenes del hero de la laptop y la animación */
 
 #hero-img {
     width: 100%;
@@ -40,3 +40,13 @@
         transform: rotate(360deg);
     }
 }
+
+
+/* hero */
+
+#home-hero {
+    transform-origin: center top 0px;
+    min-height: calc(-80px + 100vh);
+}
+
+#link-lc {}

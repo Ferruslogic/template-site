@@ -9,3 +9,9 @@
 #top-bar {
     z-index: 1003
 }
+
+@media (prefers-color-scheme: dark) {
+    .dark-scheme {
+        display: none;
+    }
+}

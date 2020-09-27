@@ -74,14 +74,27 @@ new Vue({
                 path: '/contact'
             },
         ],
+        systemDark: false,
+
     }),
     computed: {
         logoPath: function() {
-
             if (this.$vuetify.theme.dark) {
                 return './assets/public/images/logo-Ferrus-Logic-white.svg';
             }
             return './assets/public/images/logo-Ferrus-Logic.svg';
+        },
+        imageMenuPath: function() {
+            if (this.$vuetify.theme.dark) {
+                return './assets/public/images/bg-menu-black.png';
+            }
+            return './assets/public/images/bg-menu.png';
+        },
+        darkMode: function() {
+            return this.$vuetify.theme.dark;
+        },
+        setDarkMode: function() {
+
         }
     },
 })

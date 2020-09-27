@@ -12,18 +12,6 @@
     <link href="./assets/src/css/style.css" rel="stylesheet">
 
 
-    <!-- Vues -->
-    <script src="./assets/src/js/vue.js"></script>
-    <script src="./assets/src/js/vuex.js"></script>
-    <script src="./assets/src/js/vuetify.js"></script>
-    <script src="./assets/src/js/vue-router.js"></script>
-
-    <!-- Pages -->
-    <script src="./assets/src/pages/home.vue.js"></script>
-    <script src="./assets/src/pages/blog.vue.js"></script>
-    <script src="./assets/src/pages/software.vue.js"></script>
-    <script src="./assets/src/pages/about.vue.js"></script>
-    <script src="./assets/src/pages/contact.vue.js"></script>
 
 
 
@@ -46,7 +34,7 @@
             <div id="top-bar">
                 <!-- Menú móvil -->
                 <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
-                    <v-img :aspect-ratio="7/3" src="./assets/public/images/bg-menu.png">
+                    <v-img :aspect-ratio="7/3" :src="imageMenuPath">
 
                     </v-img>
 
@@ -123,21 +111,21 @@
                     <div>
                         <v-tooltip v-if="!$vuetify.theme.dark" bottom>
                             <template v-slot:activator="{ on }">
-                                    <v-btn v-on="on" color="info" small fab
-                                        @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-                                        <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
-                                    </v-btn>
-                                </template>
+                                <v-btn v-on="on" color="info" small fab
+                                    @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                                    <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
+                                </v-btn>
+                            </template>
                             <span>Dark Mode On</span>
                         </v-tooltip>
 
                         <v-tooltip v-else bottom>
                             <template v-slot:activator="{ on }">
-                                    <v-btn v-on="on" color="info" small fab
-                                        @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-                                        <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
-                                    </v-btn>
-                                </template>
+                                <v-btn v-on="on" color="info" small fab
+                                    @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                                    <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
+                                </v-btn>
+                            </template>
                             <span>Dark Mode Off</span>
                         </v-tooltip>
 
@@ -147,8 +135,10 @@
                 </v-app-bar>
             </div>
 
+
+
             <!--Main page-->
-            <v-main>
+            <v-main class="v-main v-content">
                 <v-container fluid>
                     <v-fade-transition mode="out-in">
                         <router-view></router-view>
@@ -159,6 +149,7 @@
             <!--Footer-->
             <v-footer class="pa-8">
                 <v-layout justify-center row wrap>
+
                     <div> {{appName}} &copy; {{ new Date().getFullYear() }} </div>
                 </v-layout>
             </v-footer>
@@ -166,6 +157,21 @@
 
 
     </div>
+
+
+    <!-- Vues -->
+    <script src="./assets/src/js/polyfill.min.js"></script>
+    <script src="./assets/src/js/vue.js"></script>
+    <script src="./assets/src/js/vuex.js"></script>
+    <script src="./assets/src/js/vuetify.js"></script>
+    <script src="./assets/src/js/vue-router.js"></script>
+
+    <!-- Pages -->
+    <script src="./assets/src/pages/home.vue.js"></script>
+    <script src="./assets/src/pages/blog.vue.js"></script>
+    <script src="./assets/src/pages/software.vue.js"></script>
+    <script src="./assets/src/pages/about.vue.js"></script>
+    <script src="./assets/src/pages/contact.vue.js"></script>
 
     <!-- App -->
     <script src="./assets/src/js/app.js"></script>

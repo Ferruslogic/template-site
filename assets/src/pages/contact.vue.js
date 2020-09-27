@@ -1,50 +1,70 @@
 var pageContact = {
-    template: `
-<div> 
-Contact
-<form>
-<v-text-field
-  v-model="name"
-  :error-messages="nameErrors"
-  :counter="10"
-  label="Name"
-  required
-  @input="$v.name.$touch()"
-  @blur="$v.name.$touch()"
-></v-text-field>
-<v-text-field
-  v-model="email"
-  :error-messages="emailErrors"
-  label="E-mail"
-  required
-  @input="$v.email.$touch()"
-  @blur="$v.email.$touch()"
-></v-text-field>
-<v-select
-  v-model="select"
-  :items="items"
-  :error-messages="selectErrors"
-  label="Item"
-  required
-  @change="$v.select.$touch()"
-  @blur="$v.select.$touch()"
-></v-select>
-<v-checkbox
-  v-model="checkbox"
-  :error-messages="checkboxErrors"
-  label="Do you agree?"
-  required
-  @change="$v.checkbox.$touch()"
-  @blur="$v.checkbox.$touch()"
-></v-checkbox>
+  template: `
+    <v-card
+    class="mx-auto pa-4"
+    max-width="500"
+    outlined
+    >
 
-<v-btn class="mr-4" @click="submit">submit</v-btn>
-<v-btn @click="clear">clear</v-btn>
-</form>
-</div>    
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-text-field
+            v-model="name"
+            :counter="10"
+            :rules="nameRules"
+            label="Name"
+            required
+          ></v-text-field>
+      
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+
+
+          <v-textarea
+                  v-model="message"
+                  :rules="messageRules"
+                  color="teal"
+                  required
+                >
+                  <template v-slot:label>
+                    <div>
+                      Message
+                    </div>
+                  </template>
+                </v-textarea>
+      
+        
+      
+        
+
+
+        <v-btn
+          :disabled="!valid"
+          class="mr-4"
+          @click="submit"
+        >
+          submit
+        </v-btn>
+
+
+        <v-btn @click="reset">
+          clear
+        </v-btn>
+      
+        </v-form>
+    </v-card>
     `
-,
-data: () => ({
+  ,
+
+
+  data: () => ({
     valid: true,
     name: '',
     nameRules: [
@@ -56,28 +76,43 @@ data: () => ({
       v => !!v || 'E-mail is required',
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
-    select: null,
-    items: [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
+    message: '',
+    messageRules: [
+      v => !!v || 'Message is required',
+      v => (v && v.length <= 512) || 'Message must be less than 512 characters',
     ],
-    checkbox: false,
+   
   }),
 
   methods: {
-    validate () {
+
+    submit() {
       this.$refs.form.validate()
     },
-    reset () {
+
+    validate() {
+      this.$refs.form.validate()
+    },
+    reset() {
       this.$refs.form.reset()
     },
-    resetValidation () {
+    resetValidation() {
       this.$refs.form.resetValidation()
     },
+
   },
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
 }
