@@ -6,31 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Roboto:100,900|Material+Icons'> -->
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Roboto:100,900|Material+Icons'>
     <link href="./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="./assets/src/css/vuetify.min.css" rel="stylesheet">
     <link href="./assets/src/css/style.css" rel="stylesheet">
-
-
-
-
-
+    <title></title>
 </head>
 
 <body>
 
-    <div id="app">
-        <title>{{appName}}</title>
+    <noscript>
+        <strong>
+            We're sorry but theme-blog doesn't work properly without JavaScript enabled. Please enable it to
+            continue.
+        </strong>
+    </noscript>
 
-        <noscript>
-            <strong>
-                We're sorry but theme-blog doesn't work properly without JavaScript enabled. Please enable it to
-                continue.
-            </strong>
-        </noscript>
 
+
+    <div data-app="true" class="v-application v-application--is-ltr theme--light" id="app">
 
         <v-app>
+            <title>{{appName}}</title>
+
+
             <div id="top-bar">
                 <!-- Menú móvil -->
                 <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
