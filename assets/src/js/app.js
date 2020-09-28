@@ -79,7 +79,7 @@ Vue.component('base-menu', {
 // Drawer of app
 Vue.component('base-drawer', {
     template: `
-    <div  class="sticky-top">
+    <div  class="sticky-top" style="max-width: 256px;min-width: 200px;width: 75%;">
     <v-navigation-drawer 
         left
         fixed
@@ -176,7 +176,7 @@ Vue.component('base-app-top-bar', {
                 <v-spacer></v-spacer>
 
                 <base-menu />
-                <btn-darck-mode />
+                <btn-darck-mode class="d-none d-md-block"/>
 
             </v-app-bar>
         </div>
@@ -285,13 +285,12 @@ var app = new Vue({
             <base-app-top-bar />
 
             <v-main>
-                <v-container fluid>
+                <v-container fluid class="container extra-padding">
                     <v-fade-transition mode="out-in">
                         <router-view />
                     </v-fade-transition>
                 </v-container>
             </v-main>
-
             <base-footer />
         </v-app>
     </div>

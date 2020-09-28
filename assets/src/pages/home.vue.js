@@ -1,3 +1,15 @@
+Vue.use(Vuetify)
+
+var vuetify = new Vuetify();
+var Measurable = vuetify.Measurable
+
+Vue.component('base-section', {
+    template: `
+    
+    `
+})
+
+
 Vue.component('frl-hero-texts', {
     template: `
         <div>
@@ -5,7 +17,7 @@ Vue.component('frl-hero-texts', {
                 style="height: 100%; width: 100%;">
                 <div class="v-responsive__content">
                 <div id="hero-text">
-                    <h1 class="display-1 font-weight-bold mb-4"> Simple things are more beautiful!</h1>
+                    <h1 class="display-1 font-weight mb-4"> Simple things are more beautiful!</h1>
                     <p class="lead mb-5"> Helping create your cross-platform applications. 
                         <br>
                     We offer you our help, so that you develop and develop 
@@ -29,6 +41,7 @@ Vue.component('frl-hero-texts', {
 Vue.component('frl-hiro-image', {
     template: `
     <section style="align-self-center; margin-bottom: 330px;" >
+        
         <img src="./assets/public/images/lines.svg" id="lines" class="spin position-absolute">
         <img src="./assets/public/images/laptop-mobil.png" id="hero-img" class="position-absolute">
      </section>
@@ -38,35 +51,47 @@ Vue.component('frl-hiro-image', {
 
 Vue.component('frl-hero', {
     template: `
-   
-        <div class="row fill-height">
-            <div class="col-md-6 col-12">
-                <div class="pt-2 mb-8">
-                    <frl-hero-texts></frl-hero-texts>
-                </div>
-            </div>
+    <section id="hero" class= "container mx-auto extra-padding">
 
-            <div class="col-md-6 col-12">
-                <div class="pt-2 mb-8 d-flex">
-                    <frl-hiro-image></frl-hiro-image>
-                </div>
-            </div>
-        </div>
-    
+    <v-row >
+    <div class="col-md-6 col-sm-12">
+        <v-container class="px-4 py-12 py-sm-4 pt-md-16">
+        <v-responsive class="container mx-auto d-flex align-center text-sm-center text-md-left" height="100%" max-width="515" width="100%">
+             <frl-hero-texts></frl-hero-texts>
+             </v-responsive>
+        </v-container>
+     </div>
+
+    <div class="col-md-6 col-sm-12">
+        <v-container class="d-flex align-center" height="100%"  width="100%">
+        <frl-hiro-image></frl-hiro-image>
+        </v-container>
+     </div>    
+</v-row>
+
+    </section>
     `
 })
 
 
 
 
+
+Vue.component('seccion-one-home', {
+    template: `
+    <div>
+
+    </div>
+
+    `
+})
+
+
 var pageHome = {
     template: `
-    <div class="container container--fluid">
-    <div class="v-responsive__content extra-padding">
+    
         <div>
             <frl-hero></frl-hero>
         </div>
-    </div>
-    </div>
     `
 };
