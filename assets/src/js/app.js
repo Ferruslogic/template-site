@@ -1,3 +1,25 @@
+var vItemMenu = [{
+        label: 'Home',
+        path: '/'
+    },
+    {
+        label: 'Blog',
+        path: '/blog'
+    },
+    {
+        label: 'Projects',
+        path: '/software'
+    },
+    {
+        label: 'About',
+        path: '/about'
+    },
+    {
+        label: 'Contact',
+        path: '/contact'
+    },
+]
+
 Vue.use(VueRouter)
 
 
@@ -28,28 +50,94 @@ let router = new VueRouter({
 Vuetify.config.silent = true
 
 
-// Menuitem component
-
-Vue.component('menu-item', {
-    props: ['label', 'path'],
+// Menu
+Vue.component('base-menu', {
     template: `
-    <v-btn :to="path" class="subtitle-1 text-capitalize font-weight-light" text flat>
-      {{label}}
-    </v-btn>
-    `
+  <div>
+        <div class="d-none d-md-block mr-3">    
+        <v-btn class="subtitle-1 text-capitalize font-weight-light" text flat
+             v-for="(menuitem, index) in menuitems"
+                :key ="index"
+                :to="menuitem.path"  >
+                {{ menuitem.label }}
+        </v-btn>
+            
+        </div>
+  </div>
+    `,
+    data: () => ({
+        icons: ['home', 'book', 'briefcase-download', 'account-group', 'contacts'],
+        menuitems: vItemMenu,
+        systemDark: false,
+
+    })
 })
 
-Vue.component('base-frl-footer', {
+
+
+
+// Drawer of app
+Vue.component('base-drawer', {
+    template: `
+    <div>
+    <v-navigation-drawer 
+        bottom
+        color="transparent"
+        fixed
+        height="auto"
+        overlay-color="secondary"
+        overlay-opacity=".8"
+        temporary
+        v-bind="$attrs"
+        v-on="$listeners">
+        <v-img :aspect-ratio="7/3" :src="imageMenuPath" />
+
+        <v-list shaped>
+      
+            <v-list-item
+             v-for="(item, index) in items"
+            :key="index"
+            :to="item.path">
+            
+            <v-list-item-action>
+                <v-icon>mdi-{{ icons[index] }}</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                <v-list-item-title>item.label</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+
+        </v-list>
+
+        </v-navigation-drawer>
+    </div>
+    `,
+    computed: {
+        imageMenuPath: function() {
+            if (this.$vuetify.theme.dark) {
+                return './assets/public/images/bg-menu-black.png';
+            }
+            return './assets/public/images/bg-menu.png';
+        }
+    },
+    data: () => ({
+        icons: ['home', 'book', 'briefcase-download', 'account-group', 'contacts'],
+        drawer: false,
+        items: vItemMenu
+    }),
+})
+
+
+
+// Footer of app
+Vue.component('base-footer', {
     template: `
     <div class="pa-8">
         
-        <v-footer id="home-footer" min-height="72">
+    <v-footer id="home-footer" min-height="72">
     <v-container>
       <v-row>
-        <v-col
-          cols="12"
-          md="6"
-        >
+        <v-col cols="12" md="6">
         <div class="d-flex flex-wrap justify-md-start justify-center">
             <div v-for="(s, i) in social">
             <a :href="s.url" target="_blank" :rel="s.label">
@@ -88,7 +176,6 @@ Vue.component('base-frl-footer', {
                 label: 'FerrusLogic in Facebook',
                 icon: 'mdi-facebook',
                 url: '#'
-
             },
             {
                 label: 'FerrusLogic in GitHub',
@@ -98,6 +185,20 @@ Vue.component('base-frl-footer', {
         ],
     }),
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 new Vue({
     el: '#app',
@@ -109,30 +210,7 @@ new Vue({
 
     }),
     data: () => ({
-        icons: ['home', 'book', 'briefcase-download', 'account-group', 'contacts'],
-        drawer: false,
         appName: "FerrusLogic S.A",
-        menuitems: [{
-                label: 'Home',
-                path: '/'
-            },
-            {
-                label: 'Blog',
-                path: '/blog'
-            },
-            {
-                label: 'Projects',
-                path: '/software'
-            },
-            {
-                label: 'About',
-                path: '/about'
-            },
-            {
-                label: 'Contact',
-                path: '/contact'
-            },
-        ],
         systemDark: false,
 
     }),
@@ -143,12 +221,6 @@ new Vue({
             }
             return './assets/public/images/logo-Ferrus-Logic.svg';
         },
-        imageMenuPath: function() {
-            if (this.$vuetify.theme.dark) {
-                return './assets/public/images/bg-menu-black.png';
-            }
-            return './assets/public/images/bg-menu.png';
-        },
         darkMode: function() {
             return this.$vuetify.theme.dark;
         },
@@ -156,64 +228,8 @@ new Vue({
     template: `
     <div>
     <v-app>
-
-    <div id="top-bar">
-
-                <v-navigation-drawer v-model="drawer" absolute clipped temporary app class="sticky-top">
-                    <v-img :aspect-ratio="7/3" :src="imageMenuPath">
-
-                    </v-img>
-
-                    <v-list>
-                        <v-list-item :to="{path: '/'}">
-                            <v-list-item-action>
-                                <v-icon>mdi-{{ icons[0] }}</v-icon>
-                            </v-list-item-action>
-                            <v-list-item-content>
-                                <v-list-item-title>Home</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <v-list-item :to="{path: '/blog'}">
-                            <v-list-item-action>
-                                <v-icon>mdi-{{ icons[1] }}</v-icon>
-                            </v-list-item-action>
-                            <v-list-item-content>
-                                <v-list-item-title>Blog</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <v-list-item :to="{path: '/software'}">
-                            <v-list-item-action>
-                                <v-icon>mdi-{{ icons[2] }}</v-icon>
-                            </v-list-item-action>
-                            <v-list-item-content>
-                                <v-list-item-title>Projects</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <v-list-item :to="{path: '/about'}">
-                            <v-list-item-action>
-                                <v-icon>mdi-{{ icons[3] }}</v-icon>
-                            </v-list-item-action>
-                            <v-list-item-content>
-                                <v-list-item-title>About</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <v-list-item :to="{path: '/contact'}">
-                            <v-list-item-action>
-                                <v-icon>mdi-{{ icons[4] }}</v-icon>
-                            </v-list-item-action>
-                            <v-list-item-content>
-                                <v-list-item-title>Contact</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list>
-
-                    <v-spacer></v-spacer>
-                </v-navigation-drawer>
-
+        <div>
+            <base-drawer />
 
                 <v-app-bar class="white--text v-sheet v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat>
                   <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
@@ -224,15 +240,7 @@ new Vue({
         
                     <v-spacer></v-spacer>
 
-           
-                    <div class="d-none d-md-block mr-3">
-                        <menu-item v-for="(menuitem, index) in menuitems" 
-                            :key ="index" 
-                            :path="menuitem.path" 
-                            :label="menuitem.label">
-                        </menu-item>
-                    </div>
-
+                    <base-menu />
 
 
                    
@@ -272,7 +280,7 @@ new Vue({
     </v-container>
     </v-main>
 
-  <base-frl-footer></base-frl-footer>
+  <base-footer />
 </v-app>
     </div>
     `
