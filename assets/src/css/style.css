@@ -1,5 +1,3 @@
-@import url('../css/pages/home.css');
-
 /* Para que el menú en su versión móvil no sea afectado por el scroll */
 
 .sticky-top {
@@ -14,4 +12,64 @@
     .dark-scheme {
         display: none;
     }
+}
+
+
+/* Imágenes del hero de la laptop y la animación */
+
+#hero-img {
+    width: 100%;
+    max-width: 436px;
+    padding: 50px !important;
+    z-index: 1000;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    min-height: 600px;
+    align-items: center;
+}
+
+#lines {
+    z-index: 999;
+    transition: 1s ease-in-out;
+}
+
+.position-absolute {
+    position: absolute!important
+}
+
+.spin {
+    width: 100%;
+    max-width: 450px;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* hero */
+
+#home-hero {
+    transform-origin: center top 0px;
+    min-height: calc(-80px + 100vh);
+}
+
+#home-footer a {
+    text-decoration: none;
+}
+
+#base-drawer-mobile {
+    z-index: 1099;
 }

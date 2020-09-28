@@ -79,18 +79,19 @@ Vue.component('base-menu', {
 // Drawer of app
 Vue.component('base-drawer', {
     template: `
-    <div>
+    <div  class="sticky-top">
     <v-navigation-drawer 
-        bottom
-        color="transparent"
+        left
         fixed
-        height="auto"
-        overlay-color="secondary"
-        overlay-opacity=".8"
         temporary
+        d-flex align-stretch
+        overlay-color="secondary" 
+        overlay-opacity=".8" 
         v-bind="$attrs"
-        v-on="$listeners">
-        <v-img :aspect-ratio="7/3" :src="imageMenuPath" />
+        v-on="$listeners"
+        clipped app
+        >
+      <v-img :aspect-ratio="7/3" :src="imageMenuPath" />
 
         <v-list shaped>
       
@@ -102,8 +103,9 @@ Vue.component('base-drawer', {
             <v-list-item-action>
                 <v-icon>mdi-{{ icons[index] }}</v-icon>
                 </v-list-item-action>
+                
                 <v-list-item-content>
-                <v-list-item-title>item.label</v-list-item-title>
+                <v-list-item-title>{{ item.label }}</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
 
@@ -122,7 +124,6 @@ Vue.component('base-drawer', {
     },
     data: () => ({
         icons: ['home', 'book', 'briefcase-download', 'account-group', 'contacts'],
-        drawer: false,
         items: vItemMenu
     }),
 })
@@ -134,7 +135,7 @@ Vue.component('base-footer', {
     template: `
     <div class="pa-8">
         
-    <v-footer id="home-footer" min-height="72">
+    <v-footer id="home-footer" min-height="72" d-block pa-2>
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
@@ -143,14 +144,17 @@ Vue.component('base-footer', {
             <a :href="s.url" target="_blank" :rel="s.label">
             <v-tooltip top :key="i"  class="pa-1 pa-md-0 mr-4">
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon v-bind="attrs" v-on="on" x-large>
+                    <v-btn class="mx-1" icon v-bind="attrs" v-on="on" x-large>
                     
                     <v-icon color="grey lighten-1">
                          {{s.icon}}
                     </v-icon>
                     </v-btn>
+                    <slot />
+                    <v-spacer></v-spacer><v-spacer></v-spacer>
                 </template>
                 <span>{{ s.label}}</span>
+                <v-spacer></v-spacer>
             </v-tooltip>
             </a>
                
@@ -212,6 +216,7 @@ new Vue({
     data: () => ({
         appName: "FerrusLogic S.A",
         systemDark: false,
+        drawer: null
 
     }),
     computed: {
@@ -228,18 +233,21 @@ new Vue({
     template: `
     <div>
     <v-app>
-        <div>
-            <base-drawer />
-
+    
+        <div id="top-bar">
+        
+       
+        
                 <v-app-bar class="white--text v-sheet v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat>
-                  <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
+                
+                <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
+                 
 
-          
                     <v-img class="mx-2" :src="logoPath" max-height="90" max-width="190" contain></v-img>
 
         
                     <v-spacer></v-spacer>
-
+                    
                     <base-menu />
 
 
@@ -269,8 +277,11 @@ new Vue({
                   
 
                 </v-app-bar>
+
+              
             </div>
 
+            <base-drawer v-model="drawer" id="base-drawer-mobile"/>
 
     <v-main class="v-main v-content">
     <v-container fluid>
