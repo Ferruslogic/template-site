@@ -39,13 +39,64 @@ Vue.component('menu-item', {
     `
 })
 
-
-
-Vue.component('frl-base-top-barra', {
+Vue.component('base-frl-footer', {
     template: `
-    
+    <div class="pa-8">
+        
+        <v-footer id="home-footer" min-height="72">
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="6"
+        >
+        <div class="d-flex flex-wrap justify-md-start justify-center">
+            <div v-for="(s, i) in social">
+            <a :href="s.url" target="_blank" :rel="s.label">
+            <v-tooltip top :key="i"  class="pa-1 pa-md-0 mr-4">
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn icon v-bind="attrs" v-on="on" x-large>
+                    
+                    <v-icon color="grey lighten-1">
+                         {{s.icon}}
+                    </v-icon>
+                    </v-btn>
+                </template>
+                <span>{{ s.label}}</span>
+            </v-tooltip>
+            </a>
+               
+              </v-responsive>
+              </div>
+              </div>
+        </v-col>
 
-    `
+        <v-col
+          class="text-center text-md-right"
+          cols="12"
+          md="6"
+        >
+          Copyright &copy; {{ new Date().getFullYear() }} FerrusLogic S.A
+        </v-col>
+        </v-row>
+        </v-container>
+    </v-footer>
+    </div>
+    `,
+    data: () => ({
+        social: [{
+                label: 'FerrusLogic in Facebook',
+                icon: 'mdi-facebook',
+                url: '#'
+
+            },
+            {
+                label: 'FerrusLogic in GitHub',
+                icon: 'mdi-github',
+                url: 'https://github.com/Ferruslogic/'
+            }
+        ],
+    }),
 })
 
 new Vue({
@@ -175,7 +226,10 @@ new Vue({
 
            
                     <div class="d-none d-md-block mr-3">
-                        <menu-item v-for="(menuitem, index) in menuitems" :key ="index" :path="menuitem.path" :label="menuitem.label">
+                        <menu-item v-for="(menuitem, index) in menuitems" 
+                            :key ="index" 
+                            :path="menuitem.path" 
+                            :label="menuitem.label">
                         </menu-item>
                     </div>
 
@@ -213,17 +267,12 @@ new Vue({
     <v-main class="v-main v-content">
     <v-container fluid>
         <v-fade-transition mode="out-in">
-            <router-view></router-view>
+            <router-view />
         </v-fade-transition>
     </v-container>
     </v-main>
 
-    <v-footer class="pa-8">
-    <v-layout justify-center row wrap>
-
-        <div> {{appName}} &copy; {{ new Date().getFullYear() }} </div>
-    </v-layout>
-</v-footer>
+  <base-frl-footer></base-frl-footer>
 </v-app>
     </div>
     `

@@ -49,4 +49,6 @@
     min-height: calc(-80px + 100vh);
 }
 
-#link-lc {}
+#home-footer a {
+    text-decoration: none;
+}
