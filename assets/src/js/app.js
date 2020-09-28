@@ -164,14 +164,10 @@ Vue.component('btn-darck-mode', {
 Vue.component('base-app-top-bar', {
     template: `
      <div>
-        <div id="top-bar" class="overflow-hidden">
-            <v-app-bar
-            
-            elevate-on-scroll
-            floating
-            
-            class="overflow-y-auto v-app-bar--fixed"
-             style="z-index: 1008;">
+        <div id="top-bar">
+            <v-app-bar elevate-on-scroll
+                class="overflow-y-auto v-app-bar--fixed "
+                style="z-index: 1008;">
 
                 <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
 
