@@ -4,10 +4,6 @@
     position: fixed;
 }
 
-#top-bar {
-    z-index: 1003
-}
-
 @media (prefers-color-scheme: dark) {
     .dark-scheme {
         display: none;
@@ -71,5 +67,17 @@
 }
 
 #base-drawer-mobile {
-    z-index: 1099;
+    z-index: 1009;
+}
+
+.extra-padding {
+    padding-bottom: 96px !important;
+    padding-top: 96px !important;
+}
+
+@media screen and (max-width: 959px) {
+    .extra-padding {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+    }
 }

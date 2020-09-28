@@ -130,6 +130,75 @@ Vue.component('base-drawer', {
 
 
 
+// Button changer to dack mode
+Vue.component('btn-darck-mode', {
+    template: `
+   <div>
+    <v-tooltip v-if="!$vuetify.theme.dark" bottom>
+        <template v-slot:activator="{ on }">
+            <v-btn v-on="on" color="info" small fab
+             @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
+           </v-btn>
+        </template>
+        <span>Dark Mode On</span>
+    </v-tooltip>
+
+    <v-tooltip v-else bottom>
+        <template v-slot:activator="{ on }">
+            <v-btn v-on="on" color="info" small fab
+             @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
+            </v-btn>
+        </template>
+        <span>Dark Mode Off</span>
+    </v-tooltip>
+    </div>             
+    `
+})
+
+
+
+
+// App top bar
+Vue.component('base-app-top-bar', {
+    template: `
+     <div>
+        <div id="top-bar" >
+            <v-app-bar class="white--text v-sheet v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat style="z-index: 1008;">
+
+                <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
+
+                <v-img class="mx-2" :src="logoPath" max-height="90" max-width="190" contain></v-img>
+
+                <v-spacer></v-spacer>
+
+                <base-menu />
+                <btn-darck-mode />
+
+            </v-app-bar>
+        </div>
+        <base-drawer v-model="drawer" id="base-drawer-mobile" />
+    </div>
+    `,
+    data: () => ({
+        drawer: null
+    }),
+    computed: {
+        logoPath: function() {
+            if (this.$vuetify.theme.dark) {
+                return './assets/public/images/logo-Ferrus-Logic-white.svg';
+            }
+            return './assets/public/images/logo-Ferrus-Logic.svg';
+        },
+    }
+})
+
+
+
+
+
+
 // Footer of app
 Vue.component('base-footer', {
     template: `
@@ -194,16 +263,6 @@ Vue.component('base-footer', {
 
 
 
-
-
-
-
-
-
-
-
-
-
 new Vue({
     el: '#app',
     router,
@@ -215,17 +274,9 @@ new Vue({
     }),
     data: () => ({
         appName: "FerrusLogic S.A",
-        systemDark: false,
-        drawer: null
-
+        systemDark: false
     }),
     computed: {
-        logoPath: function() {
-            if (this.$vuetify.theme.dark) {
-                return './assets/public/images/logo-Ferrus-Logic-white.svg';
-            }
-            return './assets/public/images/logo-Ferrus-Logic.svg';
-        },
         darkMode: function() {
             return this.$vuetify.theme.dark;
         },
@@ -234,56 +285,8 @@ new Vue({
     <div>
     <v-app>
     
-        <div id="top-bar">
-        
-       
-        
-                <v-app-bar class="white--text v-sheet v-toolbar v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" app clipped-left flat>
-                
-                <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
-                 
-
-                    <v-img class="mx-2" :src="logoPath" max-height="90" max-width="190" contain></v-img>
-
-        
-                    <v-spacer></v-spacer>
-                    
-                    <base-menu />
-
-
-                   
-                    <div>
-                        <v-tooltip v-if="!darkMode" bottom>
-                            <template v-slot:activator="{ on }">
-                                <v-btn v-on="on" color="info" small fab
-                                    @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-                                    <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
-                                </v-btn>
-                            </template>
-                            <span>Dark Mode On</span>
-                        </v-tooltip>
-
-                        <v-tooltip v-else bottom>
-                            <template v-slot:activator="{ on }">
-                                <v-btn v-on="on" color="info" small fab
-                                    @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-                                    <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
-                                </v-btn>
-                            </template>
-                            <span>Dark Mode Off</span>
-                        </v-tooltip>
-
-                    </div>
-                  
-
-                </v-app-bar>
-
-              
-            </div>
-
-            <base-drawer v-model="drawer" id="base-drawer-mobile"/>
-
-    <v-main class="v-main v-content">
+    <base-app-top-bar />
+    <v-main>
     <v-container fluid>
         <v-fade-transition mode="out-in">
             <router-view />
@@ -291,8 +294,8 @@ new Vue({
     </v-container>
     </v-main>
 
-  <base-footer />
-</v-app>
+    <base-footer />
+    </v-app>
     </div>
     `
 })
