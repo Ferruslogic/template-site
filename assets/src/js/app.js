@@ -24,7 +24,7 @@ Vue.use(VueRouter)
 
 
 
-
+// Rutas
 let router = new VueRouter({
     routes: [{
         path: '/',
@@ -136,7 +136,7 @@ Vue.component('btn-darck-mode', {
    <div>
     <v-tooltip v-if="!$vuetify.theme.dark" bottom>
         <template v-slot:activator="{ on }">
-            <v-btn v-on="on" color="info" small fab
+            <v-btn v-on="on" color="info" icon raised rounded
              @click="$vuetify.theme.dark = !$vuetify.theme.dark">
                 <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
            </v-btn>
@@ -146,7 +146,7 @@ Vue.component('btn-darck-mode', {
 
     <v-tooltip v-else bottom>
         <template v-slot:activator="{ on }">
-            <v-btn v-on="on" color="info" small fab
+            <v-btn v-on="on" color="info"  icon raised rounded
              @click="$vuetify.theme.dark = !$vuetify.theme.dark">
                 <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
             </v-btn>
@@ -276,28 +276,22 @@ new Vue({
         appName: "FerrusLogic S.A",
         systemDark: false
     }),
-    computed: {
-        darkMode: function() {
-            return this.$vuetify.theme.dark;
-        },
-    },
     template: `
-    <div>
-    <v-app>
-    
-    <base-app-top-bar />
-    
-    <v-main>
-    <v-container fluid>
-        <v-fade-transition mode="out-in">
-            <router-view />
-        </v-fade-transition>
-    </v-container>
-    </v-main>
+        <div>
+       
+        <v-app>
+            <base-app-top-bar />
 
-    <base-footer />
-    
-    </v-app>
+            <v-main>
+                <v-container fluid>
+                    <v-fade-transition mode="out-in">
+                        <router-view />
+                    </v-fade-transition>
+                </v-container>
+            </v-main>
+
+            <base-footer />
+        </v-app>
     </div>
     `
 })
