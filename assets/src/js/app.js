@@ -202,7 +202,7 @@ Vue.component('base-app-top-bar', {
 // Footer of app
 Vue.component('base-footer', {
     template: `
-    <div class="pa-8">
+    <div>
         
     <v-footer id="home-footer" min-height="72" d-block pa-2>
     <v-container>
