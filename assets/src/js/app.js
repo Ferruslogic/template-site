@@ -263,7 +263,7 @@ Vue.component('base-footer', {
 
 
 
-new Vue({
+var app = new Vue({
     el: '#app',
     router,
     vuetify: new Vuetify({
@@ -295,3 +295,13 @@ new Vue({
     </div>
     `
 })
+
+/* Loading  */
+$(document).ready(function() {
+
+    setTimeout(function() {
+        $('body').addClass('loaded');
+        $('h1').css('color', '#222222');
+    }, 0);
+
+});
