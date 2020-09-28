@@ -37,9 +37,9 @@ Vue.component('base-drawer', {
         v-on="$listeners"
         clipped app
         >
-        <v-lazy>
-      <v-img :aspect-ratio="7/3" :src="imageMenuPath" :lazy-src="imageLazyMenuPath" />
-      </v-lazy>
+        
+       <v-img :aspect-ratio="7/3" :src="imageMenuPath" :lazy-src="imageLazyMenuPath" />
+     
         <v-list shaped>
       
             <v-list-item
@@ -122,9 +122,8 @@ Vue.component('base-app-top-bar', {
 
                 <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
                 
-                <v-lazy>
+              
                 <v-img class="mx-2" :src="logoPath" max-height="90" max-width="190" contain />
-                </v-lazy>
 
                 <v-spacer></v-spacer>
 
