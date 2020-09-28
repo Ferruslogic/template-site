@@ -286,6 +286,7 @@ new Vue({
     <v-app>
     
     <base-app-top-bar />
+    
     <v-main>
     <v-container fluid>
         <v-fade-transition mode="out-in">
@@ -295,6 +296,7 @@ new Vue({
     </v-main>
 
     <base-footer />
+    
     </v-app>
     </div>
     `
