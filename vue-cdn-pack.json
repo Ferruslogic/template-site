@@ -1,0 +1,34 @@
+{
+    "./assets/src/components/base-component.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/components/component.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/layouts/layouts.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/home.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/blog.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/software.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/about.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/contact.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    }
+}

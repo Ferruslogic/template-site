@@ -23,7 +23,7 @@ Vue.component('frl-hero-texts', {
             </div>
         </div>
     `
-})
+});
 
 
 Vue.component('frl-hiro-image', {
@@ -34,7 +34,7 @@ Vue.component('frl-hiro-image', {
         <img src="./assets/public/images/laptop-mobil.png" id="hero-img" class="position-absolute">
      </section>
     `
-})
+});
 
 
 Vue.component('frl-hero', {
@@ -50,7 +50,7 @@ Vue.component('frl-hero', {
         </v-container>
      </div>
 
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12 hero-images">
         <v-container class="d-flex align-center" height="100%"  width="100%">
         <frl-hiro-image></frl-hiro-image>
         </v-container>
@@ -59,7 +59,7 @@ Vue.component('frl-hero', {
 
     </section>
     `
-})
+});
 
 
 
@@ -72,12 +72,11 @@ Vue.component('seccion-one-home', {
     </div>
 
     `
-})
+});
 
 
 var pageHome = {
     template: `
-    
         <div>
             <frl-hero></frl-hero>
         </div>

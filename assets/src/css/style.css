@@ -65,14 +65,29 @@
     z-index: 1009;
 }
 
+.hero-images {
+    padding-left: 8%;
+}
+
 .extra-padding {
     padding-bottom: 96px !important;
     padding-top: 96px !important;
 }
 
 @media screen and (max-width: 959px) {
+    .hero-images {
+        display: flex;
+        margin-left: 15%;
+    }
     .extra-padding {
         padding-top: 48px !important;
         padding-bottom: 48px !important;
+    }
+}
+
+@media screen and (max-width: 559px) {
+    .hero-images {
+        display: flex;
+        margin-left: 0;
     }
 }

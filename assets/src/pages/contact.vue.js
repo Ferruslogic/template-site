@@ -1,5 +1,5 @@
 var pageContact = {
-  template: `
+    template: `
     <v-card
     class="mx-auto pa-4"
     max-width="500"
@@ -60,47 +60,47 @@ var pageContact = {
       
         </v-form>
     </v-card>
-    `
-  ,
+    `,
 
 
-  data: () => ({
-    valid: true,
-    name: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
-    email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-    message: '',
-    messageRules: [
-      v => !!v || 'Message is required',
-      v => (v && v.length <= 512) || 'Message must be less than 512 characters',
-    ],
-   
-  }),
+    data: () => ({
+        valid: true,
+        name: '',
+        nameRules: [
+            v => !!v || 'Name is required',
+            v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        ],
+        email: '',
+        emailRules: [
+            v => !!v || 'E-mail is required',
+            v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        ],
+        message: '',
+        messageRules: [
+            v => !!v || 'Message is required',
+            v => (v && v.length <= 512) || 'Message must be less than 512 characters',
+        ],
 
-  methods: {
+    }),
 
-    submit() {
-      this.$refs.form.validate()
+    methods: {
+
+        submit() {
+            this.$refs.form.validate()
+        },
+
+        validate() {
+            this.$refs.form.validate()
+        },
+        reset() {
+            this.$refs.form.reset()
+        },
+        resetValidation() {
+            this.$refs.form.resetValidation()
+        },
+
     },
 
-    validate() {
-      this.$refs.form.validate()
-    },
-    reset() {
-      this.$refs.form.reset()
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation()
-    },
-
-  },
 
 
 
@@ -113,6 +113,4 @@ var pageContact = {
 
 
 
-
-
-}
+};

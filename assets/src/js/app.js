@@ -18,9 +18,9 @@ var vItemMenu = [{
         label: 'Contact',
         path: '/contact'
     },
-]
+];
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 
 
@@ -45,9 +45,9 @@ let router = new VueRouter({
         path: '*',
         redirect: '/'
     }]
-})
+});
 
-Vuetify.config.silent = true
+Vuetify.config.silent = true;
 
 
 
@@ -67,4 +67,4 @@ var app = new Vue({
     template: `
         <main-layout />
     `
-})
+});
