@@ -1,15 +1,3 @@
-Vue.use(Vuetify)
-
-var vuetify = new Vuetify();
-var Measurable = vuetify.Measurable
-
-Vue.component('base-section', {
-    template: `
-    
-    `
-})
-
-
 Vue.component('frl-hero-texts', {
     template: `
         <div>
