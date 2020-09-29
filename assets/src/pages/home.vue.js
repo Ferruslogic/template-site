@@ -39,7 +39,8 @@ Vue.component('frl-hiro-image', {
 
 Vue.component('frl-hero', {
     template: `
-    <section id="hero" class= "container mx-auto extra-padding">
+    <section id="hero"
+    class= "container mx-auto extra-padding">
 
     <v-row >
     <div class="col-md-6 col-sm-12">
@@ -77,8 +78,18 @@ Vue.component('seccion-one-home', {
 
 var pageHome = {
     template: `
-        <div>
+        <div 
+        :class="styleBackHero"
+        style="margin-top: -45px; margin-left: -14px; margin-right: -15px;">
             <frl-hero></frl-hero>
         </div>
-    `
+    `,
+    computed: {
+        styleBackHero: function() {
+            if (this.$vuetify.theme.dark) {
+                return 'gradient-b';
+            }
+            return 'gradient-w';
+        }
+    }
 };

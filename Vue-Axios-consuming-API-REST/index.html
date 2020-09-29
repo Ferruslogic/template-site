@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <!-- Nuestra simple APP de ejemplo -->
+    <div id="app">
+        <div>
+            <button v-on:click="getAllRequest()">GetAll</button>
+        </div>
+        <div>
+            <button v-on:click="getFilteredRequest()">Filter</button>
+            <input v-model="myfilter" placeholder="filter">
+        </div>
+        <div>
+            <button v-on:click="postRequest()">Create</button>
+        </div>
+        <div>
+            <my-component v-for="item in myList" v-bind:my="item" v-bind:key="item.id"></my-component>
+        </div>
+    </div>
+
+    <!-- Cargamos las referencias a VUE y AXIOS desde CDN-->
+    <script src="vue.js"></script>
+    <script src="axios.min.js"></script>
+
+    <!-- Cargamos los ficheros que simular nuestro API y nuestra App en Vue.JS -->
+    <script type="text/javascript" src="./API.js"></script>
+    <script type="text/javascript" src="./App.js"></script>
+</body>
+
+</html>

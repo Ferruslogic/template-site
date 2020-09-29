@@ -144,7 +144,7 @@ Vue.component('base-app-top-bar', {
                 return './assets/public/images/logo-Ferrus-Logic-white.svg';
             }
             return './assets/public/images/logo-Ferrus-Logic.svg';
-        },
+        }
     }
 });
 
