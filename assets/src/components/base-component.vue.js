@@ -38,7 +38,7 @@ Vue.component('base-drawer', {
         clipped app
         >
         
-       <v-img :aspect-ratio="7/3" :src="imageMenuPath" :lazy-src="imageLazyMenuPath" />
+       <v-img :aspect-ratio="7/3" :src="imageMenuPath"/>
      
         <v-list shaped>
       
@@ -67,12 +67,6 @@ Vue.component('base-drawer', {
                 return './assets/public/images/bg-menu-black.png';
             }
             return './assets/public/images/bg-menu.png';
-        },
-        imageLazyMenuPath: function() {
-            if (this.$vuetify.theme.dark) {
-                return './assets/public/images/Lazy/bg-menu-black.png';
-            }
-            return './assets/public/images/Lazy/bg-menu.png';
         }
     },
     data: () => ({

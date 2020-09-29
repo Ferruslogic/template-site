@@ -30,8 +30,8 @@ Vue.component('frl-hiro-image', {
     template: `
     <section style="align-self-center; margin-bottom: 330px;" >
         
-        <img src="./assets/public/images/lines.svg" id="lines" class="spin position-absolute" loading="lazy">
-        <img src="./assets/public/images/laptop-mobil.png" id="hero-img" class="position-absolute" loading="lazy">
+        <img src="./assets/public/images/lines.svg" id="lines" class="spin position-absolute">
+        <img src="./assets/public/images/laptop-mobil.png" id="hero-img" class="position-absolute">
      </section>
     `
 });
