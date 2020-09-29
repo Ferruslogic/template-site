@@ -31,8 +31,36 @@
         "cdn": "",
         "pack": "app"
     },
-    "./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css" {
-        "cdn": "",
+    "./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css": {
+        "cdn": "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
+        "pack": ""
+    },
+    "./assets/src/css/vuetify.min.css": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
+        "pack": ""
+    },
+    "./assets/src/js/polyfill.min.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js   ",
+        "pack": ""
+    },
+    "./assets/src/js/vue.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js",
+        "pack": ""
+    },
+    "./assets/src/js/vuex.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vuex@3.x/dist/vuex.min.js",
+        "pack": ""
+    },
+    "./assets/src/js/vuetify.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js",
+        "pack": ""
+    },
+    "./assets/src/js/vue-router.js": {
+        "cdn": "https://unpkg.com/vue-router/dist/vue-router.js",
+        "pack": ""
+    },
+    "./assets/src/js/axios.min.js": {
+        "cdn": "https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js",
         "pack": ""
     }
 }
