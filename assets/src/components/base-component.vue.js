@@ -3,7 +3,7 @@ Vue.component('base-menu', {
     template: `
   <div>
         <div class="d-none d-md-block mr-3">    
-        <v-btn class="subtitle-1 text-capitalize font-weight-light" text flat
+        <v-btn class="subtitle-1 text-capitalize font-weight mx-1" text flat
              v-for="(menuitem, index) in menuitems"
                 :key ="index"
                 :to="menuitem.path"  >
