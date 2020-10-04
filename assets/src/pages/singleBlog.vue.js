@@ -1,4 +1,4 @@
-var pagePosts = {
+var singleBlog = {
     template: `
     <div> <div class="title">Post</div>
     <v-hover>
