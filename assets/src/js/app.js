@@ -34,6 +34,9 @@ let router = new VueRouter({
         path: '/blog',
         component: pagBlog,
     }, {
+        path: '/blog/:id',
+        component: singleBlog
+    }, {
         path: '/software',
         component: pageSoftware,
     }, {
