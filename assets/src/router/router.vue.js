@@ -26,7 +26,9 @@ Vue.use(VueRouter);
 
 
 // Rutas
+
 let router = new VueRouter({
+    mode: 'history',
     routes: [{
         path: '/',
         component: pageHome,
@@ -48,5 +50,7 @@ let router = new VueRouter({
     }, {
         path: '*',
         redirect: '/'
+
     }]
+
 });
