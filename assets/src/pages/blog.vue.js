@@ -1,8 +1,28 @@
+Vue.prototype.$http = axios
+
 var pagBlog = {
     template: `
     <div>
+
+    <div v-if="cargando">
+   
+
+    <v-progress-circular
+      :size="50"
+      color="amber"
+      indeterminate
+    ></v-progress-circular>
+    </div>
+
+    <div v-else-if="error" class="alert alert-danger">
+      Error al intentar cargar las publicaciones.
+    </div>
+
+    <div v-else>
     <div class="title"> Blog </div>
-    <button v-on:click="getRequest(my.id)">Get</button>
+
+   
+    <button v-on:click="getRequest(postsList.id)">Get</button>
 
 <template>
   <v-item-group>
@@ -30,15 +50,62 @@ var pagBlog = {
   </v-item-group>
 </template> 
     </div>
+    </div>
     `,
+    props: {
+        postsList: Array
+    },
     data: () => ({
         /* ToDo: La lista de post se las pide a el api, esto es para probar */
-        posts: [
-            { id: 'noticia-1', title: 'Noticia 1', content: 'Lorem ipsum dolor sit amet 1', thumbnail: './assets/public/images/posts/00/_thumbnail.jpg' },
-            { id: 'noticia-2', title: 'Noticia 2', content: 'Lorem ipsum dolor sit amet 2', thumbnail: './assets/public/images/posts/00/_thumbnail.jpg' },
-            { id: 'noticia-3', title: 'Noticia 3', content: 'Lorem ipsum dolor sit amet 3', thumbnail: './assets/public/images/posts/00/_thumbnail.jpg' },
-            { id: 'noticia-4', title: 'Noticia 4', content: 'Lorem ipsum dolor sit amet 4', thumbnail: './assets/public/images/posts/00/_thumbnail.jpg' }
-        ]
-    })
+        posts: [{
+                id: 'noticia-1',
+                title: 'Noticia 1',
+                content: 'Lorem ipsum dolor sit amet 1',
+                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
+            },
+            {
+                id: 'noticia-2',
+                title: 'Noticia 2',
+                content: 'Lorem ipsum dolor sit amet 2',
+                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
+            },
+            {
+                id: 'noticia-3',
+                title: 'Noticia 3',
+                content: 'Lorem ipsum dolor sit amet 3',
+                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
+            },
+            {
+                id: 'noticia-4',
+                title: 'Noticia 4',
+                content: 'Lorem ipsum dolor sit amet 4',
+                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
+            }
+        ],
+        cargando: true,
+        error: false,
+        posts: [],
+        pokemon: []
+    }),
+    created: function() {
+        this.recuperarPosts();
+    },
+    methods: {
+        recuperarPosts: function() {
+            var that = this;
+            axios.get({
+                    method: "GET",
+                    "file": 'file:///D:/PROYECTOS/Proyectos%20GitGub/Ferruslogic/template-site/'
+                })
+                .then(function(response) {
+                    that.cargando = false;
+                    that.posts = response.data;
+                })
+                .catch(function(error) {
+                    that.cargando = false;
+                    that.error = true;
+                });
+        }
+    }
 
 };

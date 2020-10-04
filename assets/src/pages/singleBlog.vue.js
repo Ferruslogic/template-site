@@ -11,4 +11,10 @@ var singleBlog = {
     data: () => ({
         html: '<p> HTML LINCK TEST</p>',
     }),
+
+    /*
+    beforeRouteEnter(to, from, next) {},
+    beforeRouteUpdate(to, from, next) {},
+    beforeRouteLeave(to, from, next) {} 
+    */
 };

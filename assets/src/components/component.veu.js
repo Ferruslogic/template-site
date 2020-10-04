@@ -97,3 +97,15 @@ Vue.component("page-not-found", {
         // window.location.href = "./assets/src/templates/my-new-404-page.html";
     }
 })
+
+Vue.component('progress-linear', {
+    template: `
+    <div>
+    <v-progress-linear
+      indeterminate 
+      color="orange darken-3"
+      rounded
+    ></v-progress-linear>
+    </div>
+    `
+})
