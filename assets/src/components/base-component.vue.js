@@ -208,7 +208,8 @@ Vue.component('base-footer', {
 Vue.component('base-grid-post', {
     template: `
   <div>
-    <v-card class="mx-auto" max-width="344" outline>
+    <v-card class="mx-auto" max-width="344" outline
+    >
         <v-img :src="thumbnail" height="200px"></v-img>
 
         <v-card-title>
