@@ -2,7 +2,7 @@ Vuetify.config.silent = true;
 
 
 
-var app = new Vue({
+var vm = new Vue({
     el: '#app',
     router,
     vuetify: new Vuetify({
