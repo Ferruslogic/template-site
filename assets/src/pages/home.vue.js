@@ -5,11 +5,10 @@ Vue.component('frl-hero-texts', {
                 style="height: 100%; width: 100%;">
                 <div class="v-responsive__content">
                 <div id="hero-text">
-                    <h1 class="display-1 font-weight mb-4"> Simple things are more beautiful!</h1>
-                    <p class="lead mb-5"> Helping create your cross-platform applications. 
+                    <h1 class="display-1 font-weight mb-4">Welcome!</h1>
+                    <p class="lead mb-5"> Here you will find help to learn how to create
                         <br>
-                    We offer you our help, so that you develop and develop 
-                    much faster with 
+                        your multiplatform apps with
                     <kbd>
                         <a class="font-weight-black" href="https://livecode.org/" target="_blank" rel="LiveCode Open Source" style="text-decoration: none !important;color: #FFFFFF;">
                         LiveCode.

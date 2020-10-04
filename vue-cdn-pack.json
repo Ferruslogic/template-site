@@ -63,10 +63,9 @@
         "cdn": "https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js",
         "pack": ""
     },
-    {
-        "./assets/src/js/vue-markdown.min.js": {
-            "cdn": "https://cdnjs.cloudflare.com/ajax/libs/vue-markdown/2.2.4/vue-markdown.min.js",
-            "pack": ""
-        }
+    "./assets/src/js/vue-markdown.min.js": {
+        "cdn": "https://cdnjs.cloudflare.com/ajax/libs/vue-markdown/2.2.4/vue-markdown.min.js",
+        "pack": ""
     }
+
 }
