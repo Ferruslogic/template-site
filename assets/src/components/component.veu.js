@@ -62,11 +62,10 @@ Vue.component('frl-hero', {
 });
 
 
-Vue.component('seccion-one-home', {
-    template: `
-    <div>
-
-    </div>
-
-    `
-});
+Vue.component("page-not-found", {
+    template: "",
+    created: function() {
+        // Redirect outside the app using plain old javascript
+        window.location.href = "./assets/src/templates/my-new-404-page.html";
+    }
+})
