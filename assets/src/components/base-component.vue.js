@@ -220,12 +220,11 @@ Vue.component('base-grid-post', {
         </v-card-subtitle>
 
         <v-card-actions>
-            <a :href="postLink">
-            <v-btn color="orange lighten-2" text>
-                
+            <router-link :to="postLink"> 
+            <v-btn color=" lighten-2" text>
                 Explore
             </v-btn>
-            </a>
+            </router-link>
             <v-spacer></v-spacer>
 
             <v-btn icon @click="show = !show">
