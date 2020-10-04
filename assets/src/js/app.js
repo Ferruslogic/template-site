@@ -68,11 +68,6 @@ var app = new Vue({
         appName: "FerrusLogic S.A",
         systemDark: false
     }),
-    computed: {
-        modoOscuro: function() {
-            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        }
-    },
     template: `
         <main-layout />
     `
