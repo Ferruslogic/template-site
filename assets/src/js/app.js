@@ -13,7 +13,6 @@ var vm = new Vue({
     }),
     data: () => ({
         appName: "FerrusLogic S.A",
-        systemDark: false
     }),
     template: `
         <main-layout />

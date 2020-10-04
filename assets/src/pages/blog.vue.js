@@ -1,13 +1,13 @@
 var pagBlog = {
     template: `
     <div>
-    <div class="title">Blog</div>
+    <div class="title"> Blog </div>
+    <button v-on:click="getRequest(my.id)">Get</button>
 
 <template>
   <v-item-group>
     <v-container>
       <v-row>
-
         <v-col v-for="(post, index) in posts"
         :key ="index"
          cols="12"md="4" sm="6" >         
