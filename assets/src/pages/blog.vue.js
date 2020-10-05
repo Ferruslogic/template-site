@@ -91,11 +91,12 @@ var pagBlog = {
         this.recuperarPosts();
     },
     methods: {
+
         recuperarPosts: function() {
             var that = this;
-            axios.get({
-                    method: "GET",
-                    "file": 'file:///D:/PROYECTOS/Proyectos%20GitGub/Ferruslogic/template-site/'
+
+            axios.get('http://192.168.83.32:8010/v/assets/src/data/posts/post-list.json', {
+                    crossdomain: true
                 })
                 .then(function(response) {
                     that.cargando = false;
