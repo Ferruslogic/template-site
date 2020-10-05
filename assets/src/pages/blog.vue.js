@@ -1,5 +1,3 @@
-Vue.prototype.$http = axios
-
 var pagBlog = {
     template: `
     <div>
@@ -20,10 +18,6 @@ var pagBlog = {
 
     <div v-else>
     <div class="title"> Blog </div>
-
-   
-    <button v-on:click="getRequest(postsList.id)">Get</button>
-
 <template>
   <v-item-group>
     <v-container>
@@ -34,7 +28,7 @@ var pagBlog = {
           <v-item>
           <v-lazy>
           <v-hover v-slot:default="{ hover }"
-        open-delay="200">
+            open-delay="200">
            <base-grid-post  ripple
            :title="post.title"
            :thumbnail="post.thumbnail"
@@ -52,49 +46,19 @@ var pagBlog = {
     </div>
     </div>
     `,
-    props: {
-        postsList: Array
-    },
     data: () => ({
-        /* ToDo: La lista de post se las pide a el api, esto es para probar */
-        posts: [{
-                id: 'noticia-1',
-                title: 'Noticia 1',
-                content: 'Lorem ipsum dolor sit amet 1',
-                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
-            },
-            {
-                id: 'noticia-2',
-                title: 'Noticia 2',
-                content: 'Lorem ipsum dolor sit amet 2',
-                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
-            },
-            {
-                id: 'noticia-3',
-                title: 'Noticia 3',
-                content: 'Lorem ipsum dolor sit amet 3',
-                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
-            },
-            {
-                id: 'noticia-4',
-                title: 'Noticia 4',
-                content: 'Lorem ipsum dolor sit amet 4',
-                thumbnail: './assets/public/images/posts/00/_thumbnail.jpg'
-            }
-        ],
         cargando: true,
         error: false,
         posts: [],
         pokemon: []
     }),
     created: function() {
-        this.recuperarPosts();
+        this.postsList();
+        this.postLista2();
     },
     methods: {
-
-        recuperarPosts: function() {
+        postsList: function() {
             var that = this;
-
             axios.get('http://192.168.83.32:8010/v/assets/src/data/posts/post-list.json', {
                     crossdomain: true
                 })
@@ -106,6 +70,7 @@ var pagBlog = {
                     that.cargando = false;
                     that.error = true;
                 });
+            return that;
         }
     }
 
