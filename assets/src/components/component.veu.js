@@ -96,7 +96,7 @@ Vue.component("page-not-found", {
         // Redirect outside the app using plain old javascript
         // window.location.href = "./assets/src/templates/my-new-404-page.html";
     }
-})
+});
 
 Vue.component('progress-linear', {
     template: `
@@ -108,4 +108,19 @@ Vue.component('progress-linear', {
     ></v-progress-linear>
     </div>
     `
-})
+});
+
+Vue.component('loading-page', {
+    template: `
+    <div >
+    <v-overlay :value="overlay">
+      <v-progress-circular  indeterminate :size="70" :width="3">
+      <v-img  width="30" src="./assets/public/images/logo.png"/>
+      </v-progress-circular>
+    </v-overlay>
+    </div>
+    `,
+    props: {
+        overlay: true,
+    }
+});

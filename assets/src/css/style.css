@@ -115,3 +115,7 @@
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#272727', endColorstr='#ffffff', GradientType=0);
     transform-origin: center top 0px;
 }
+
+#loading-page {
+    z-index: 90000;
+}
