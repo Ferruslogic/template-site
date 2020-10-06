@@ -1,0 +1,71 @@
+{
+    "./assets/src/components/base-component.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/components/component.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/layouts/layouts.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/home.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/blog.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/software.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/about.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/pages/contact.vue.js": {
+        "cdn": "",
+        "pack": "app"
+    },
+    "./assets/src/fonts/materialdesignicons/css/materialdesignicons.min.css": {
+        "cdn": "https://cdn.jsdelivr.net/npm/@mdi/font@5.6.55/css/materialdesignicons.min.css",
+        "pack": ""
+    },
+    "./assets/src/css/vuetify.min.css": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
+        "pack": ""
+    },
+    "./assets/src/js/polyfill.min.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/jquery@latest/dist/polyfill.min.js   ",
+        "pack": ""
+    },
+    "./assets/src/js/vue.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js",
+        "pack": ""
+    },
+    "./assets/src/js/vuex.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vuex@3.x/dist/vuex.min.js",
+        "pack": ""
+    },
+    "./assets/src/js/vuetify.js": {
+        "cdn": "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js",
+        "pack": ""
+    },
+    "./assets/src/js/vue-router.js": {
+        "cdn": "https://unpkg.com/vue-router/dist/vue-router.min.js",
+        "pack": ""
+    },
+    "./assets/src/js/axios.min.js": {
+        "cdn": "https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js",
+        "pack": ""
+    },
+    "./assets/src/js/vue-markdown.min.js": {
+        "cdn": "https://cdnjs.cloudflare.com/ajax/libs/vue-markdown/2.2.4/vue-markdown.min.js",
+        "pack": ""
+    }
+
+}
