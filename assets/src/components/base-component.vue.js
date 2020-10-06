@@ -76,8 +76,6 @@ Vue.component('base-drawer', {
 });
 
 
-
-
 /*  App top bar */
 Vue.component('base-app-top-bar', {
     template: `
