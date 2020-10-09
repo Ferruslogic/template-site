@@ -2,7 +2,7 @@ var pagBlog = {
     template: `
     <div>
 
-    <div v-if="cargando">
+    <div v-if="loadingPage">
    
 
     <v-progress-circular
@@ -47,30 +47,24 @@ var pagBlog = {
     </div>
     `,
     data: () => ({
-        cargando: true,
+        loadingPage: true,
         error: false,
         posts: [],
         pokemon: []
     }),
     created: function() {
         this.postsList();
-        this.postLista2();
     },
     methods: {
-        postsList: function() {
+        postsList: async function() {
             var that = this;
-            axios.get('http://192.168.83.32:8010/v/assets/src/data/posts/post-list.json', {
-                    crossdomain: true
-                })
-                .then(function(response) {
-                    that.cargando = false;
-                    that.posts = response.data;
-                })
-                .catch(function(error) {
-                    that.cargando = false;
-                    that.error = true;
-                });
-            return that;
+            try {
+                var data = await API_getPostList();
+                that.loadingPage = false;
+                that.posts = data;
+            } catch (error) {
+                console.error("error:", error);
+            }
         }
     }
 
