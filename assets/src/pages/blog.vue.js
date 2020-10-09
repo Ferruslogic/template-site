@@ -6,9 +6,9 @@ var pagBlog = {
     <progress-linear />
     </div>
 
-    <div v-else-if="error" class="alert alert-danger">
+    <!-- <div v-else-if="error" class="alert alert-danger">
       Error al intentar cargar las publicaciones.
-    </div>
+    </div> -->
 
     <div v-else>
     <div class="title"> Blog </div>
@@ -18,7 +18,7 @@ var pagBlog = {
       <v-row>
         <v-col v-for="(post, index) in posts"
           :key ="index"
-          cols="12"md="4" sm="6" >         
+          cols="12"md="4" sm="6" >
             <v-item>
               <v-lazy>
                   <v-hover v-slot:default="{ hover }"
@@ -36,7 +36,7 @@ var pagBlog = {
           </v-row>
         </v-container>
       </v-item-group>
-    </template> 
+    </template>
     </div>
     </div>
     `,
@@ -46,25 +46,25 @@ var pagBlog = {
         posts: [],
         pokemon: []
     }),
+
     created: function() {
-        this.testLading();
+        this.postsList();
     },
+
     methods: {
         postsList: async function() {
-            var that = this;
+            var it = this;
+
             try {
                 var data = await API_getPostList();
-                that.loadingPage = false;
-                that.posts = data;
-            } catch (error) {
-                console.error("error:", error);
-            }
-        },
+                it.loadingPage = false;
+                it.posts = data;
 
-        testLading: function() {
-            setTimeout(() => {
-                this.postsList();
-            }, 1500);
+
+            } catch (error) {
+                // pagBlog.error = true
+                // console.error("error:", error);
+            }
         }
     }
 

@@ -107,10 +107,10 @@ var vm = new Vue({
 
 
 
-        setTimeout(() => {
-            this.loadingPage = false;
-        }, 1500);
-
+        // setTimeout(() => {
+        //     this.loadingPage = false;
+        // }, 1500);
+        this.loadingPage = false;
 
     }
 });

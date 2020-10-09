@@ -116,6 +116,7 @@ Vue.component('progress-linear', {
       indeterminate 
       color="orange darken-3"
       rounded
+      style="margin-top: -32px;"
     ></v-progress-linear>
     </div>
     `

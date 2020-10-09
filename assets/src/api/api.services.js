@@ -4,6 +4,7 @@ const baseUrlPost = './assets/src/data/posts/';
 
 
 async function API_getPostList() {
+
     var result = await fetch(baseUrlPost + 'post-list.json')
         .then(response => response.json())
         .then(data => {
@@ -12,8 +13,10 @@ async function API_getPostList() {
         })
         .catch(error => {
             //TODO: RETORNA EL JSON DEL LOCAL STORAGE SI ESTA, ESTO MERITE QUE EL USUARIO TENGA UNA WEB.
+            console.error("API-catch", error);
             return error;
         });
+
 
     window.localStorage.setItem('PostList', result.length); //TODO: Para mostrar post falsos mientras.
     return result;
