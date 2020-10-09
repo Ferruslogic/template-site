@@ -52,14 +52,24 @@ var vm = new Vue({
     }),
     data: () => ({
         appName: "FerrusLogic S.A",
+        loadingPage: true,
         overlay: true,
         systemDark: false
     }),
 
     template: `
     <div>
-        <!-- <loading-page :overlay="loadingPage"/> -->
+    <div v-if="loadingPage">
+    <loading-page />
+    </div>
+
+    <div v-else-if="error" class="alert alert-danger">
+      Error al intentar cargar las publicaciones.
+    </div>
+
+    <div v-else>
         <main-layout />
+    </div>
     </div>
     `,
     mounted() {
@@ -93,6 +103,14 @@ var vm = new Vue({
         };
 
         //////////////////////////////////// Language ////////////////////////////////////
+
+
+
+
+        setTimeout(() => {
+            this.loadingPage = false;
+        }, 1500);
+
 
     }
 });
