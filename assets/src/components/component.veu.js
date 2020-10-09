@@ -61,14 +61,14 @@ Vue.component('frl-hero', {
     `
 });
 
-/* Button changer to dack mode */
-Vue.component('btn-darck-mode', {
+/* Button changer to dark mode */
+Vue.component('btn-dark-mode', {
     template: `
    <div>
     <v-tooltip v-if="!$vuetify.theme.dark" bottom>
         <template v-slot:activator="{ on }">
             <v-btn v-on="on" color="info" icon raised rounded
-             @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+             @click="onClick">
                 <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
            </v-btn>
         </template>
@@ -78,14 +78,25 @@ Vue.component('btn-darck-mode', {
     <v-tooltip v-else bottom>
         <template v-slot:activator="{ on }">
             <v-btn v-on="on" color="info"  icon raised rounded
-             @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+             @click="onClick">
                 <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
             </v-btn>
         </template>
         <span>Dark Mode Off</span>
     </v-tooltip>
     </div>             
-    `
+    `,
+    methods: {
+        onClick: function() {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            if (this.$vuetify.theme.dark) {
+                window.localStorage.setItem('darkActive', "1");
+            } else {
+                window.localStorage.setItem('darkActive', "0");
+            };
+
+        }
+    }
 });
 
 

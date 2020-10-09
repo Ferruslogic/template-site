@@ -93,7 +93,7 @@ Vue.component('base-app-top-bar', {
                 <v-spacer></v-spacer>
 
                 <base-menu />
-                <btn-darck-mode class="d-none d-md-block"/>
+                <btn-dark-mode class="d-none d-md-block"/>
 
             </v-app-bar>
         </div>

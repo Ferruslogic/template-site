@@ -46,7 +46,7 @@ var vm = new Vue({
     router,
     vuetify: new Vuetify({
         theme: {
-            dark: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            dark: false
         }
 
     }),
@@ -55,9 +55,10 @@ var vm = new Vue({
         overlay: true,
         systemDark: false
     }),
+
     template: `
     <div>
-        <loading-page :overlay="loadingPage"/>
+        <!-- <loading-page :overlay="loadingPage"/> -->
         <main-layout />
     </div>
     `,
@@ -65,6 +66,33 @@ var vm = new Vue({
         // hide the overlay when everything has loaded
         // you could choose some other event, e.g. if you're loading
         // data asynchronously, you could wait until that process returns
-        this.overlay = false
+        this.overlay = false;
+
+        //******************************* STARTUP SETTING ***************************************/
+
+        ////////////////////////////////////  Dark Mode ////////////////////////////////////
+        let darkActive = window.localStorage.getItem('darkActive');
+        window.localStorage.setItem('darkActive', "0");
+        if (darkActive === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                window.localStorage.setItem('darkActive', "1");
+            } else {
+                window.localStorage.setItem('darkActive', "0");
+            }
+        };
+
+        if (darkActive === "1") {
+
+            this.$vuetify.theme.dark = true;
+            window.localStorage.setItem('darkActive', "1");
+
+        } else {
+
+            this.$vuetify.theme.dark = false;
+            window.localStorage.setItem('darkActive', "0");
+        };
+
+        //////////////////////////////////// Language ////////////////////////////////////
+
     }
 });
