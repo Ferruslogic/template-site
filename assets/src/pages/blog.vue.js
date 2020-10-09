@@ -3,13 +3,7 @@ var pagBlog = {
     <div>
 
     <div v-if="loadingPage">
-   
-
-    <v-progress-circular
-      :size="50"
-      color="amber"
-      indeterminate
-    ></v-progress-circular>
+    <progress-linear />
     </div>
 
     <div v-else-if="error" class="alert alert-danger">
@@ -18,31 +12,31 @@ var pagBlog = {
 
     <div v-else>
     <div class="title"> Blog </div>
-<template>
-  <v-item-group>
+    <template>
+    <v-item-group>
     <v-container>
       <v-row>
         <v-col v-for="(post, index) in posts"
-        :key ="index"
-         cols="12"md="4" sm="6" >         
-          <v-item>
-          <v-lazy>
-          <v-hover v-slot:default="{ hover }"
-            open-delay="200">
-           <base-grid-post  ripple
-           :title="post.title"
-           :thumbnail="post.thumbnail"
-           :postLink="'/blog/'+post.id"
-           :content="post.content"
-         />
-         </v-hover>
-        </v-lazy>
-        </v-item>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-item-group>
-</template> 
+          :key ="index"
+          cols="12"md="4" sm="6" >         
+            <v-item>
+              <v-lazy>
+                  <v-hover v-slot:default="{ hover }"
+                    open-delay="200">
+                      <base-grid-post  ripple
+                        :title="post.title"
+                        :thumbnail="post.thumbnail"
+                        :postLink="'/blog/'+post.id"
+                        :content="post.content"
+                   />
+                  </v-hover>
+                </v-lazy>
+              </v-item>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-item-group>
+    </template> 
     </div>
     </div>
     `,
@@ -53,7 +47,7 @@ var pagBlog = {
         pokemon: []
     }),
     created: function() {
-        this.postsList();
+        this.testLading();
     },
     methods: {
         postsList: async function() {
@@ -65,7 +59,14 @@ var pagBlog = {
             } catch (error) {
                 console.error("error:", error);
             }
+        },
+
+        testLading: function() {
+            setTimeout(() => {
+                this.postsList();
+            }, 1500);
         }
     }
+
 
 };
