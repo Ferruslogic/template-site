@@ -2,22 +2,31 @@
 
 const baseUrlPost = './assets/src/data/posts/';
 
+/** Locales */
 
+async function API_getWebTexts(pLocale) {
+
+}
+
+
+/** Posts */
 async function API_getPostList() {
-
     var result = await fetch(baseUrlPost + 'post-list.json')
         .then(response => response.json())
         .then(data => {
-            //TODO: Almacena el JSON EN EL LOCAL STORAGE
+            saveIntoStorage('posts', data, true);
             return data;
         })
         .catch(error => {
-            //TODO: RETORNA EL JSON DEL LOCAL STORAGE SI ESTA, ESTO MERITE QUE EL USUARIO TENGA UNA WEB.
-            console.error("API-catch", error);
+            let inCache = getFromStorage('posts', true);
+            if (inCache != null) {
+                return inCache;
+            };
+
             return error;
         });
 
 
-    window.localStorage.setItem('PostList', result.length); //TODO: Para mostrar post falsos mientras.
+    saveIntoStorage('numPost', result.length);
     return result;
 }
