@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html manifest="mycache.manifest">
 
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,8 +7,8 @@
 <html class="no-js">
 <!--<![endif]-->
 
-</html>
-<html manifest="mycache.manifest">
+
+
 
 <head>
 
@@ -23,7 +23,7 @@
 
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
     <!-- Styles -->
     <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
@@ -39,7 +39,10 @@
     <script src="./assets/src/js/vuetify.min.js"></script>
     <script src="./assets/src/js/vue-router.js"></script>
 
+    <script src="./assets/src/api/api.services.js"></script>
     <script src="./assets/src/storage/storage.vue.js"></script>
+    <script src="./assets/src/locales/language.vue.js"></script>
+
     <script src="./assets/src/components/base-component.vue.js"></script>
     <script src="./assets/src/components/component.veu.js"></script>
 
@@ -54,7 +57,7 @@
 
     <script src="./assets/src/router/router.vue.js"></script>
 
-    <script src="./assets/src/api/api.services.js"></script>
+
 
 </head>
 

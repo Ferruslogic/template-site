@@ -4,8 +4,25 @@ const baseUrlPost = './assets/src/data/posts/';
 
 /** Locales */
 
-async function API_getWebTexts(pLocale) {
+async function API_getWebLocale() {
 
+
+
+    var result = await fetch('./assets/src/locales/locales.json')
+        .then(response => response.json())
+        .then(data => {
+            saveIntoStorage('locales', data, true);
+            return data;
+        })
+        .catch(error => {
+            let inCache = getFromStorage(kLocale, true);
+            if (inCache !== null) {
+                return inCache;
+            };
+            return null;
+        });
+
+    return result;
 }
 
 

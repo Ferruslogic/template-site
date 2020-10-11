@@ -47,7 +47,8 @@ var vm = new Vue({
     vuetify: new Vuetify({
         theme: {
             dark: false
-        }
+        },
+
 
     }),
     data: () => ({
@@ -111,5 +112,7 @@ var vm = new Vue({
             this.loadingPage = false;
         }, 1500);
         this.$error = false;
+
+        console.error('AppLanguage', AppLanguage);
     }
 });
