@@ -1,45 +1,11 @@
 [{
-        "id": "post-1",
-        "title": "Noticia 1",
-        "content": "Lorem ipsum dolor sit amet 1",
-        "thumbnail": "./assets/public/images/posts/00/_thumbnail.jpg",
-        "link": {
-            "previous": "",
-            "current": "./assets/public/images/posts/01/",
-            "next": "./assets/public/images/posts/02/"
-        }
-    },
-    {
-        "id": "post-2",
-        "title": "Noticia 2",
-        "content": "Lorem ipsum dolor sit amet 2",
-        "thumbnail": "./assets/public/images/posts/00/_thumbnail.jpg",
-        "link": {
-            "previous": "./assets/public/images/posts/01",
-            "current": "./assets/public/images/posts/02/",
-            "next": "./assets/public/images/posts/03/"
-        }
-    },
-    {
-        "id": "post-3",
-        "title": "Noticia 3",
-        "content": "Lorem ipsum dolor sit amet 3",
-        "thumbnail": "./assets/public/images/posts/00/_thumbnail.jpg",
-        "link": {
-            "previous": "./assets/public/images/posts/02",
-            "current": "./assets/public/images/posts/03/",
-            "next": "./assets/public/images/posts/04/"
-        }
-    },
-    {
-        "id": "post-4",
-        "title": "Noticia 4",
-        "content": "Lorem ipsum dolor sit amet 4",
-        "thumbnail": "./assets/public/images/posts/00/_thumbnail.jpg",
-        "link": {
-            "previous": "./assets/public/images/posts/03",
-            "current": "./assets/public/images/posts/04/",
-            "next": ""
-        }
+    "id": "post",
+    "title": "Notice 1",
+    "content": "Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code.",
+    "thumbnail": "./assets/public/images/posts/00/_thumbnail.jpg",
+    "link": {
+        "previous": "",
+        "current": "./assets/public/images/posts/01/",
+        "next": ""
     }
-]
+}]

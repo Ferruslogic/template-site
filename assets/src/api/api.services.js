@@ -3,26 +3,13 @@
 const baseUrlPost = './assets/src/data/posts/';
 
 /** Locales */
+function API_getAppLocale() {
 
-async function API_getWebLocale() {
-
-
-
-    var result = await fetch('./assets/src/locales/locales.json')
-        .then(response => response.json())
-        .then(data => {
-            saveIntoStorage('locales', data, true);
-            return data;
-        })
-        .catch(error => {
-            let inCache = getFromStorage(kLocale, true);
-            if (inCache !== null) {
-                return inCache;
-            };
-            return null;
-        });
-
-    return result;
+    if (this.browserDetails.language === 'es') {
+        return this.AppSetting.languages.es;
+    } else {
+        return this.AppSetting.languages.en;
+    }
 }
 
 

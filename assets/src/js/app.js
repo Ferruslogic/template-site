@@ -1,48 +1,10 @@
-const state = {
-    language: 'EN',
-    loadingPage: true,
-}
-
-const mutations = {
-    updateLanguage: (state, payload) => {
-        state.setLanguage = payload
-    }
-}
-
-const getters = {
-    getLanguage: state => {
-        return 'TODO: Implementar que devuelva el idioma actual + el del navegador.'
-    }
-}
-
-const actions = {
-    syncUpdateLanguage: ({ commit }, payload) => {
-        commit("updateLanguage", payload)
-    },
-    asyncUpdateLanguage: ({ commit }, payload) => {
-        setTimeout(() => {
-            commit("updateLanguage", payload)
-        }, )
-    }
-}
-
-const store = new Vuex.Store({
-    state,
-    getters,
-    mutations,
-    actions
-})
-
-const { mapActions, mapGetters } = Vuex;
-
-
 Vuetify.config.silent = true;
 
 
 
 var vm = new Vue({
     el: '#app',
-    store,
+    AppSetting,
     router,
     vuetify: new Vuetify({
         theme: {
@@ -54,12 +16,11 @@ var vm = new Vue({
     data: () => ({
         appName: "FerrusLogic S.A",
         loadingPage: true,
-        overlay: true,
-        systemDark: false
     }),
 
     template: `
     <div>
+        
     <div v-if="loadingPage">
     <loading-page />
     </div>
@@ -73,12 +34,23 @@ var vm = new Vue({
     </div>
     </div>
     `,
-    mounted() {
-        // hide the overlay when everything has loaded
-        // you could choose some other event, e.g. if you're loading
-        // data asynchronously, you could wait until that process returns
-        this.overlay = false;
+    methods: {
+        loadLocate: async function() {
+            var it = this;
 
+            try {
+                var data = await API_getWebLocale();
+                it.AppSetting.Locate = data;
+
+
+
+            } catch (error) {
+                // pagBlog.error = true
+                // console.error("error:", error);
+            }
+        }
+    },
+    mounted() {
         //******************************* STARTUP SETTING ***************************************/
 
         ////////////////////////////////////  Dark Mode ////////////////////////////////////
@@ -106,13 +78,24 @@ var vm = new Vue({
         //////////////////////////////////// Language ////////////////////////////////////
 
 
-
-
+        // hide the overlay when everything has loaded
+        // you could choose some other event, e.g. if you're loading
+        // data asynchronously, you could wait until that process returns
         setTimeout(() => {
+            this.$error = false;
+            this.overlay = false;
             this.loadingPage = false;
         }, 1500);
-        this.$error = false;
 
-        console.error('AppLanguage', AppLanguage);
+        const newLocal = 1500;
+        setTimeout(() => {
+            activeLanguage("es");
+        }, newLocal);
+
+        setTimeout(() => {
+            activeLanguage("en");
+
+        }, newLocal);
+
     }
 });

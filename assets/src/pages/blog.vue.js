@@ -43,8 +43,7 @@ var pagBlog = {
     data: () => ({
         loadingPage: true,
         error: false,
-        posts: [],
-        pokemon: []
+        posts: []
     }),
 
     created: function() {

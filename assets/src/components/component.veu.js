@@ -5,23 +5,33 @@ Vue.component('frl-hero-texts', {
                 style="height: 100%; width: 100%;">
                 <div class="v-responsive__content">
                 <div id="hero-text">
-                    <h1 class="display-1 font-weight mb-4">Welcome!</h1>
-                    <p class="lead mb-5"> Here you will find help to learn how to create
-                        <br>
-                        your multiplatform apps with
+                    <h1 class="display-1 font-weight mb-4">{{ text1 }}</h1>
+                    <p class="lead mb-5">
+                    <span  v-html="text2"></span>
                     <kbd>
                         <a class="font-weight-black" href="https://livecode.org/" target="_blank" rel="LiveCode Open Source" style="text-decoration: none !important;color: #FFFFFF;">
                         LiveCode.
                         </a>
                     </kbd>
                     </p>
-
                     
                 </div>
                 </div>
             </div>
         </div>
-    `
+    `,
+    data: () => ({
+        homeTitle: this.AppSetting.ActiveLanguage.homeTitle,
+        text2: this.AppSetting.ActiveLanguage.homeSubTitle,
+
+    }),
+    computed: {
+        text1: function() {
+            var ActiveLanguage = AppSetting.ActiveLanguage.homeTitle;
+            console.error(ActiveLanguage);
+            return AppSetting.ActiveLanguage.homeTitle;
+        }
+    }
 });
 
 
@@ -104,8 +114,9 @@ Vue.component('btn-dark-mode', {
 Vue.component("page-not-found", {
     template: "",
     created: function() {
+        const newLocal = "./assets/src/templates/my-new-404-page.html";
         // Redirect outside the app using plain old javascript
-        // window.location.href = "./assets/src/templates/my-new-404-page.html";
+        // window.location.href = newLocal;
     }
 });
 
