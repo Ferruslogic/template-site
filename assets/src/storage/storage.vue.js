@@ -19,14 +19,12 @@ function getFromStorage(pKey, pJson = false) {
     if (sportStorage() === true) {
         let result = localStorage.getItem(pKey);
 
-        if (result) {
-            if (pJson === true) {
-                result = JSON.parse(result);
-            };
-            return result;
-        } else {
-            return undefined;
-        }
+
+        if (pJson === true) {
+            result = JSON.parse(result);
+        };
+        return result;
+
     };
 };
 

@@ -63,7 +63,7 @@ var vm = new Vue({
     <loading-page />
     </div>
 
-    <div v-else-if="error" class="alert alert-danger">
+    <div v-else-if="this.$error" class="alert alert-danger">
       Error al intentar cargar las publicaciones.
     </div>
 
@@ -111,6 +111,6 @@ var vm = new Vue({
         //     this.loadingPage = false;
         // }, 1500);
         this.loadingPage = false;
-
+        this.$error = false;
     }
 });

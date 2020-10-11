@@ -1,0 +1,27 @@
+CACHE MANIFEST
+# FerrusLogic S.A
+# v1.0 : 2020-10-10
+
+CACHE:
+# page
+index.html
+
+# styles & scripts
+assets/src/css/style.css
+assets/src/js/app.js
+
+
+# images
+assets/public/images/favicon.ico
+assets/public/images/favicon.png
+assets/public/images/bg-menu.png
+assets/public/images/bg-menu-black.png
+assets/public/images/laptop-mobil.png
+assets/public/images/favicon-Ferrus-Logic.svg
+assets/public/images/lines.svg
+assets/public/images/logo.png
+assets/public/images/logo-Ferrus-Logic.svg
+assets/public/images/logo-Ferrus-Logic-white.svg
+
+NETWORK:
+assets/src/data/
