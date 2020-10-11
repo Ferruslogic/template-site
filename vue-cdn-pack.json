@@ -40,15 +40,11 @@
         "pack": ""
     },
     "./assets/src/js/polyfill.min.js": {
-        "cdn": "https://cdn.jsdelivr.net/npm/jquery@latest/dist/polyfill.min.js   ",
+        "cdn": "https://cdn.jsdelivr.net/npm/jquery@latest/dist/polyfill.min.js",
         "pack": ""
     },
     "./assets/src/js/vue.js": {
         "cdn": "https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js",
-        "pack": ""
-    },
-    "./assets/src/js/vuex.js": {
-        "cdn": "https://cdn.jsdelivr.net/npm/vuex@3.x/dist/vuex.min.js",
         "pack": ""
     },
     "./assets/src/js/vuetify.js": {
@@ -57,10 +53,6 @@
     },
     "./assets/src/js/vue-router.js": {
         "cdn": "https://unpkg.com/vue-router/dist/vue-router.min.js",
-        "pack": ""
-    },
-    "./assets/src/js/axios.min.js": {
-        "cdn": "https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js",
         "pack": ""
     },
     "./assets/src/js/vue-markdown.min.js": {

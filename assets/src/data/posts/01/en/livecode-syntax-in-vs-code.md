@@ -2,7 +2,7 @@
 
 
 
-<img src="C:\Users\toroc\OneDrive\Escritorio\screenshot.png" alt="screenshot" style="zoom: 33%;" />
+<img src="./screenshot.jpg" alt="screenshot"/>
 
 Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code. It is in its initial state, so collaboration would be appreciated to turn this into a great extension.
 

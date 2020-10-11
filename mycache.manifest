@@ -9,7 +9,12 @@ index.html
 # styles & scripts
 assets/src/css/style.css
 assets/src/js/app.js
-
+https://unpkg.com/vue-router/dist/vue-router.min.js
+https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js
+https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js
+https://cdn.jsdelivr.net/npm/jquery@latest/dist/polyfill.min.js
+https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css
+https://cdn.jsdelivr.net/npm/@mdi/font@5.6.55/css/materialdesignicons.min.css
 
 # images
 assets/public/images/favicon.ico

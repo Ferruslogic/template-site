@@ -78,24 +78,13 @@ var vm = new Vue({
         //////////////////////////////////// Language ////////////////////////////////////
 
 
+
         // hide the overlay when everything has loaded
         // you could choose some other event, e.g. if you're loading
         // data asynchronously, you could wait until that process returns
-        setTimeout(() => {
-            this.$error = false;
-            this.overlay = false;
-            this.loadingPage = false;
-        }, 1500);
-
-        const newLocal = 1500;
-        setTimeout(() => {
-            activeLanguage("es");
-        }, newLocal);
-
-        setTimeout(() => {
-            activeLanguage("en");
-
-        }, newLocal);
+        this.$error = false;
+        this.overlay = false;
+        this.loadingPage = false;
 
     }
 });

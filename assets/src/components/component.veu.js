@@ -21,16 +21,15 @@ Vue.component('frl-hero-texts', {
         </div>
     `,
     data: () => ({
-        homeTitle: this.AppSetting.ActiveLanguage.homeTitle,
+        text1: this.AppSetting.ActiveLanguage.homeTitle,
         text2: this.AppSetting.ActiveLanguage.homeSubTitle,
 
     }),
     computed: {
-        text1: function() {
-            var ActiveLanguage = AppSetting.ActiveLanguage.homeTitle;
-            console.error(ActiveLanguage);
-            return AppSetting.ActiveLanguage.homeTitle;
-        }
+        // text1: function() {
+        //     var ActiveLanguage = AppSetting.ActiveLanguage.homeTitle;
+        //     return AppSetting.ActiveLanguage.homeTitle;
+        // }
     }
 });
 

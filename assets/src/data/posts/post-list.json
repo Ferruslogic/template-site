@@ -1,11 +1,11 @@
 [{
-    "id": "post",
-    "title": "Notice 1",
+    "id": "livecode-syntax-in-vs-code",
+    "title": "LiveCode syntax in VS Code.",
     "content": "Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code.",
-    "thumbnail": "./assets/public/images/posts/00/_thumbnail.jpg",
+    "thumbnail": "./assets/public/images/posts/01/_thumbnail.jpg",
     "link": {
         "previous": "",
-        "current": "./assets/public/images/posts/01/",
+        "current": "./assets/src/data/posts/01/en/",
         "next": ""
     }
 }]

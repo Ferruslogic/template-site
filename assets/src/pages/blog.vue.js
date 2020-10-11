@@ -22,7 +22,7 @@ var pagBlog = {
             <v-item>
               <v-lazy>
                   <v-hover v-slot:default="{ hover }"
-                    open-delay="200">
+                    open-delay="200"  gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                       <base-grid-post  ripple
                         :title="post.title"
                         :thumbnail="post.thumbnail"

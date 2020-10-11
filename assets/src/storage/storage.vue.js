@@ -54,8 +54,8 @@ var request = window.indexedDB.open("IDB", 3);
 
 request.onsuccess = function(event) {
     var database = event.result;
-    console.error("Database Opened", database);
+    // console.error("Database Opened", database);
 };
 request.onerror = function(e) {
-    console.error(e);
+    // console.error(e);
 };
