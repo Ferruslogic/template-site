@@ -85,7 +85,5 @@ async function API_getPostView(pPostId) {
             return error;
         });
 
-
-    saveIntoStorage('numPost', result.length);
     return result;
 }

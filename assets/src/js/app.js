@@ -79,6 +79,8 @@ var vm = new Vue({
 
 
 
+
+
         // hide the overlay when everything has loaded
         // you could choose some other event, e.g. if you're loading
         // data asynchronously, you could wait until that process returns

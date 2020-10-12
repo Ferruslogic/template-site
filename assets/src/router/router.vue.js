@@ -25,8 +25,7 @@ Vue.use(VueRouter);
 
 
 
-// Rutas
-
+// Router
 let router = new VueRouter({
     routes: [{
         path: '/',

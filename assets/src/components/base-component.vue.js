@@ -193,7 +193,7 @@ Vue.component('base-grid-post', {
 
         <v-card-actions>
             <router-link :to="postLink"> 
-            <v-btn color=" lighten-2" text>
+            <v-btn color=" lighten-2" text style="background: #F96706;">
                 Explore
             </v-btn>
             </router-link>

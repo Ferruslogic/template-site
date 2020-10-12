@@ -1,6 +1,6 @@
 var singleBlog = {
     template: `
-    <div> 
+    <div class="container fluid px-0"> 
 
 <span v-html="html"></span>
 
