@@ -1,10 +1,8 @@
 var singleBlog = {
     template: `
-    <div class="container fluid px-0"> 
-
-<span v-html="html"></span>
-
-  </div>
+   <div class="container fluid px-0"  style="text-align: center;">
+        <span v-html="html"></span>
+    </div>
     `,
     data: () => ({
         html: '',
@@ -16,13 +14,12 @@ var singleBlog = {
     methods: {
         getPost: async function(id) {
             var it = this;
-
             try {
                 var data = await API_getPostView(id);
                 it.html = data;
             } catch (error) {
-                // pagBlog.error = true
-                // console.error("error:", error);
+                pagBlog.error = true
+                console.error("error:", error);
             }
         }
     },

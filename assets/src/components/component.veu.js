@@ -34,10 +34,9 @@ Vue.component('frl-hero-texts', {
 });
 
 
-Vue.component('frl-hiro-image', {
+Vue.component('frl-hero-image', {
     template: `
     <section style="align-self-center; margin-bottom: 330px;" >
-        
         <img src="./assets/public/images/lines.svg" id="lines" class="spin position-absolute">
         <img src="./assets/public/images/laptop-mobil.png" id="hero-img" class="position-absolute">
      </section>
@@ -61,7 +60,7 @@ Vue.component('frl-hero', {
 
     <div class="col-md-6 col-sm-12 hero-images">
         <v-container class="d-flex align-center" height="100%"  width="100%">
-        <frl-hiro-image></frl-hiro-image>
+        <frl-hero-image></frl-hero-image>
         </v-container>
      </div>    
 </v-row>
@@ -110,14 +109,7 @@ Vue.component('btn-dark-mode', {
 
 
 
-Vue.component("page-not-found", {
-    template: "",
-    created: function() {
-        const newLocal = "./assets/src/templates/my-new-404-page.html";
-        // Redirect outside the app using plain old javascript
-        // window.location.href = newLocal;
-    }
-});
+
 
 Vue.component('progress-linear', {
     template: `

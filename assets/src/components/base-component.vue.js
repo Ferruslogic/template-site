@@ -37,9 +37,8 @@ Vue.component('base-drawer', {
         v-on="$listeners"
         clipped app
         >
-        
-       <v-img :aspect-ratio="7/3" :src="imageMenuPath"/>
-     
+       <v-img :aspect-ratio="7/3" :src="imageMenuPath" />
+
         <v-list shaped>
       
             <v-list-item
@@ -87,8 +86,9 @@ Vue.component('base-app-top-bar', {
 
                 <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
                 
-              
-                <v-img class="mx-2" :src="logoPath" max-height="90" max-width="190" contain />
+               <router-link to="/">
+                <v-img class="mx-2" :src="logoPath"  max-height="90" max-width="190" contain />
+                </router-link>
 
                 <v-spacer></v-spacer>
 
@@ -193,7 +193,7 @@ Vue.component('base-grid-post', {
 
         <v-card-actions>
             <router-link :to="postLink"> 
-            <v-btn color=" lighten-2" text style="background: #F96706;">
+            <v-btn color=" lighten-2" text>
                 Explore
             </v-btn>
             </router-link>
@@ -224,61 +224,7 @@ Vue.component('base-grid-post', {
         content: String,
         thumbnail: String,
         postLink: String,
-        subtitle: String
+        subtitle: String,
+        postFolder: String
     }
 });
-
-Vue.component('mainContent', {
-    template: `
-    <v-layout row wrap align-center>
-          <v-flex xs8  offset-md2>
-            <div v-for="article in articles" :key="article.title">
-              <v-card class="my-3" hover>
-                <v-img
-                  height="350px"
-                  v-bind:src="article.urlToImage"
-                ></v-img>
-                  <v-container fill-height fluid>
-                    <v-layout>
-                      <v-flex xs12 align-end d-flex>
-                        <span class="headline">{{ article.title }}</span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-card-media>
-                <v-card-text>
-                  {{ article.description }}
-                </v-card-text>
-                <v-card-actions>
-                  <v-chip small color="secondary" class="white--text">
-                    {{article.source.name}}
-                  </v-chip>
-                  <v-spacer></v-spacer>
-                  <v-btn icon class="red--text">
-                    <v-icon small>fa-reddit</v-icon>
-                  </v-btn>
-                  <v-btn icon class="light-blue--text">
-                    <v-icon small>fa-twitter</v-icon>
-                  </v-btn>
-                  <v-btn icon class="blue--text text--darken-4">
-                    <v-icon small>fa-facebook</v-icon>
-                  </v-btn>
-                  <v-btn icon class="red--text">
-                    <v-icon small>fa-google-plus</v-icon>
-                  </v-btn>
-                  <v-btn icon class="blue--text text--darken-4">
-                    <v-icon small>fa-linkedin</v-icon>
-                  </v-btn>
-                  <v-spacer></v-spacer>
-
-         <v-btn small replace color="info" v-bind:href="article.url" target="_blank" >Read More</v-btn>
-                </v-card-actions>
-              </v-card>
-            </div>
-          </v-flex>
-        </v-layout>
-    `,
-    props: {
-        articles: Array
-    },
-})
