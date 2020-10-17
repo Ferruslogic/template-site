@@ -1,3 +1,11 @@
+let language = String;
+var browserDetails = this;
+var locales = "";
+
+var res = navigator.language.split("-");
+language = res[0].toLowerCase();
+this.browserDetails.language = language;
+
 AppSetting.languages = {
     "en": {
         "appName": "FerrusLogic S.A",
@@ -14,14 +22,6 @@ AppSetting.languages = {
 };
 
 
-let language = String;
-var browserDetails = this;
-var locales = "";
-
-var res = navigator.language.split("-");
-language = res[0].toLowerCase();
-this.browserDetails.language = language;
-
 function activeLanguage(pLanguage) {
     if (pLanguage == null) {
         if (this.browserDetails.language != "es" && this.browserDetails.language != "en") {
@@ -30,30 +30,8 @@ function activeLanguage(pLanguage) {
     };
 
     saveIntoStorage('language', pLanguage);
+    AppSetting.ActiveLanguage = API_getAppLocale()
 };
 
-function currentLanguage() {
-    var lang = getFromStorage('language');
-    var result;
-
-    if (lang != 'es' & lang != 'en') {
-        lang = window.navigator.language;
-        var navLang = lang.split("-");
-
-        if (navLang[0] === 'es' | navLang[0] === 'en') {
-            result = navLang[0];
-        } else {
-            result = 'en';
-        };
-    };
-
-
-    return result;
-};
-
-currentLanguage();
 
 activeLanguage(language);
-
-
-AppSetting.ActiveLanguage = API_getAppLocale()
