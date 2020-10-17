@@ -50,29 +50,13 @@ function API_getAppLocale() {
 //   .then(response => response.json())
 //   .then(data => console.log(data));
 
-/* language */
-var browserDetails = this;
-var locales = "";
-
-var res = navigator.language.split("-");
-language = res[0].toLowerCase();
-this.browserDetails.language = language;
-
-function activeLanguage(pLanguage) {
-    if (pLanguage == null) {
-        if (this.browserDetails.language != "es" && this.browserDetails.language != "en") {
-            pLanguage = "en";
-        };
-    };
-
-    saveIntoStorage('language', pLanguage);
-};
-
-
 
 /** Posts */
 async function API_getPostList() {
-    var result = await fetch(baseUrlPost + 'post-list.json')
+    var result = await fetch(baseUrlPost + 'post-list.json', {
+            method: 'GET',
+            headers: this.headers,
+        })
         .then(response => response.json())
         .then(data => {
             saveIntoStorage('posts', data, true);
@@ -123,7 +107,10 @@ async function API_getPostView(pPostId) {
 
 
 
-    var result = await fetch(kPostPath)
+    var result = await fetch(kPostPath, {
+            method: 'GET',
+            headers: this.headers,
+        })
         .then(response => response.text())
         .then(data => {
             saveIntoStorage(kPostId, data, true);

@@ -1,3 +1,8 @@
+Vue.filter('format-thousands', function(value) {
+    // https://stackoverflow.com/a/2901298
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+});
+
 var pagBlog = {
     template: `
     <div>
@@ -11,6 +16,13 @@ var pagBlog = {
     </div> -->
 
     <div v-else>
+ 
+        <div class="col-12" dark>
+        <input id="input-search" type="text" placeholder="Search..." style="margin: 10px 5px;width: 100%;padding: 5px;" >
+    </div>
+
+
+<v-divider />
   <template>
     <v-item-group>
     <v-container>
@@ -42,8 +54,17 @@ var pagBlog = {
     data: () => ({
         loadingPage: true,
         error: false,
+        textSearch: "",
         posts: []
     }),
+    computed: {
+        countriesFilter: function() {
+            var textSearch = this.textSearch;
+            return this.countries.filter(function(el) {
+                return el.name.toLowerCase().indexOf(textSearch.toLowerCase()) !== -1;
+            });
+        }
+    },
 
     created: function() {
         this.postsList();

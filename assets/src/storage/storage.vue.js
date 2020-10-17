@@ -21,6 +21,7 @@ if (!window.indexedDB) {
 
 /* Local Storage */
 function saveIntoStorage(pKey, pValue, pJson = false) {
+
     if (pJson === false) {
         localStorage.setItem(pKey, pValue);
     } else {
@@ -30,12 +31,13 @@ function saveIntoStorage(pKey, pValue, pJson = false) {
 
 function getFromStorage(pKey, pJson = false) {
 
-    let result = localStorage.getItem(pKey);
-
+    var result = localStorage.getItem(pKey);
 
     if (pJson === true) {
         result = JSON.parse(result);
     };
+
+
     return result;
 };
 
