@@ -21,16 +21,24 @@ AppSetting.languages = {
     }
 };
 
+AppSetting.ActiveLanguage = this.AppSetting.languages.en;
 
 function activeLanguage(pLanguage) {
-    if (pLanguage == null) {
+
+    if (pLanguage === null || pLanguage === undefined) {
         if (this.browserDetails.language != "es" && this.browserDetails.language != "en") {
             pLanguage = "en";
         };
     };
 
     saveIntoStorage('language', pLanguage);
-    AppSetting.ActiveLanguage = API_getAppLocale()
+
+    if (pLanguage === 'es') {
+        AppSetting.ActiveLanguage = this.AppSetting.languages.es;
+    } else {
+        AppSetting.ActiveLanguage = this.AppSetting.languages.en;
+    };
+    return true;
 };
 
 

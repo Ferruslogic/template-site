@@ -3,15 +3,6 @@ var AppSetting = this;
 
 const baseUrlPost = './assets/src/data/posts/';
 
-/** Locales */
-function API_getAppLocale() {
-
-    if (this.browserDetails.language === 'es') {
-        return this.AppSetting.languages.es;
-    } else {
-        return this.AppSetting.languages.en;
-    }
-}
 
 //  async mounted () {
 //     try {
