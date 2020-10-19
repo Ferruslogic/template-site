@@ -3,15 +3,11 @@ Vuetify.config.silent = true;
 var vm = new Vue({
     el: '#app',
     router,
+    store,
     vuetify: new Vuetify({
         theme: {
             dark: false
         }
-    }),
-    data: () => ({
-        loadingPage: true,
-        textSearch: "",
-        countries: []
     }),
     template: `
     <div>
@@ -27,7 +23,17 @@ var vm = new Vue({
 
     </div>
     `,
+
+    data: () => ({
+        textSearch: "",
+        countries: []
+    }),
+
     methods: {
+        ...mapActions([
+            'syncSetLanguage',
+            'syncLoadedPage'
+        ]),
         onClick: function() {
             if (AppSetting.language != 'es') {
                 saveIntoStorage('language', 'es');
@@ -36,12 +42,21 @@ var vm = new Vue({
             };
 
             activeLanguage();
-            //this.appName = AppSetting.ActiveLanguage.appName;
-        }
+        },
+        setLoadedPage(pLoaded) {
+            if (typeof pLoaded === 'boolean') {
+                this.syncLoadedPage(pLoaded);
+            } else {
+                this.syncLoadedPage(!state.loaded);
+            }
+            return state.loaded;
+        },
+    },
+    beforeCreate() {
+        state.loaded = true;
     },
     created() {
         //******************************* STARTUP SETTING ***************************************/
-
         //////////////////////////////////////  Dark Mode ///////////////////////////////////////
         let darkActive = window.localStorage.getItem('darkActive');
 
@@ -63,8 +78,7 @@ var vm = new Vue({
         };
 
         //////////////////////////////////// Language ////////////////////////////////////
-        //this.appName = AppSetting.ActiveLanguage.appName;
-
+        activeLanguage();
     },
     mounted() {
         // hide the overlay when everything has loaded
@@ -72,11 +86,17 @@ var vm = new Vue({
         // data asynchronously, you could wait until that process returns
         this.error = false;
         this.overlay = false;
-        this.loadingPage = false;
+        this.setLoadedPage(false);
     },
     computed: {
+        ...mapGetters([
+            'postActive'
+        ]),
         appName: function() {
-            return AppSetting.ActiveLanguage.appName;
+            return this.$store.state.language.appName;
+        },
+        loadingPage: function() {
+            return this.$store.state.loaded;
         }
     }
 });

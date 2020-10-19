@@ -1,25 +1,13 @@
-// VUEX
+/* VUEX */
 const state = {
-    blog: {
-        posts: [],
-        currentPage: 0,
-        numPage: 0,
-        numPost: 0,
-        numPostByPage: 0
-    },
-    language: {
-        active: 'en',
-        content: []
-    }
+    loaded: true,
+    blog: { posts: [], currentPage: 0, numPage: 0, numPost: 0, numPostByPage: 0 },
+    language: { active: 'en', texts: [] }
 };
-
 
 const getters = {
-    postActive: state => {
-        return state.blog.posts.filter(post => post.active);
-    }
+    postActive: state => { return state.blog.posts.filter(post => post.active); }
 };
-
 
 const mutations = {
     updatePostList: (state, payload) => {
@@ -27,36 +15,53 @@ const mutations = {
     },
     setLanguage: (state, payload) => {
         state.language.active = payload.active;
-        state.language.content = payload.content;
+        state.language.texts = payload.texts;
+    },
+    loadedPage: (state, payload) => {
+        state.loaded = payload;
     }
+};
+
+const actions = {
+    syncUpdatePostList: ({ commit }, payload) => {
+        commit("updatePostList", payload);
+    },
+    syncSetLanguage: ({ commit }, payload) => {
+        commit("setLanguage", payload);
+    },
+    syncLoadedPage: ({ commit }, payload) => {
+        commit('loadedPage', payload);
+    }
+};
+
+const store = new Vuex.Store({ state, getters, mutations, actions });
+const { mapActions, mapGetters, mapState } = Vuex;
+
+/**************************************** Filters ***************************************/
+/** * computed:{ searchNoticia: function () { return this.lists.filter((item) => { return item.noticia_titulo_cas.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()) || item.noticia_titulo_cas.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()) || item.lanak_titulo_cas.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()) || item.noticia_fecha.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()); }); } */
+
+function getFilteredByKey(array, key, value) {
+    return array.filter(function(e) { return e[key] == value; });
 }
 
 
-////////////////////////////////////////////////////////////////////////////
+/********************************** Local Storage **********************************/
 let sportStorages = this;
-
 if (!window.applicationCache) {
     sportStorages.sportAppCache = true;
 } else {
     sportStorages.sportAppCache = false;
 };
-
 if (!window.Storage) {
     sportStorages.sportStorage = true;
-} else {
-    sportStorages.sportStorage = false;
-};
-
+} else { sportStorages.sportStorage = false; };
 if (!window.indexedDB) {
     sportIndexedDB = true;
 } else {
     sportIndexedDB = false;
 };
 
-
-/* Local Storage */
 function saveIntoStorage(pKey, pValue, pJson = false) {
-
     if (pJson === false) {
         localStorage.setItem(pKey, pValue);
     } else {
@@ -64,21 +69,15 @@ function saveIntoStorage(pKey, pValue, pJson = false) {
     };
 };
 
-
 function getFromStorage(pKey, pJson = false) {
-
     var result = localStorage.getItem(pKey);
-
     if (pJson === true) {
         result = JSON.parse(result);
     };
-
-
     return result;
 };
 
 function removeFromStorage(pKey) {
-
     localStorage.removeItem(pKey);
 };
 
@@ -86,14 +85,12 @@ function clearStorage() {
     localStorage.clear();
 };
 
-
 /* Database Index */
 var request = window.indexedDB.open("IDB", 3);
-
 request.onsuccess = function(event) {
     var database = event.result;
-    // console.error("Database Opened", database);
+    /* console.error("Database Opened", database);*/
 };
 request.onerror = function(e) {
-    // console.error(e);
+    /* console.error(e);*/
 };

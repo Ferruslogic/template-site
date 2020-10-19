@@ -10,7 +10,6 @@ var singleBlog = {
     created: function() {
         this.getPost(this.$route.params.id);
     },
-
     methods: {
         getPost: async function(id) {
             var it = this;
@@ -47,16 +46,4 @@ var singleBlog = {
         };
 
     }
-    /*
-    beforeRouteEnter(to, from, next) {},
-    beforeRouteUpdate(to, from, next) {},
-    beforeRouteLeave(to, from, next) {} 
-
-    beforeRouteLeave - llamado en el componente de ruta "/"
-    beforeEach: se llama globalmente cuando se inicia una nueva navegación
-    beforeEnter: se llama cuando la ruta "/ contacto" coincide
-    beforeRouteEnter: se llama cuando el componente de ruta "/ contacto" coincide
-    beforeResolve: se llama globalmente cuando se realizan las protecciones de componentes de ruta
-    afterEach: se llama globalmente cuando todo está resuelto
-     */
 };
