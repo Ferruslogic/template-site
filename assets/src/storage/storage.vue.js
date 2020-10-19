@@ -1,8 +1,17 @@
 /* VUEX */
 const state = {
     loaded: true,
-    blog: { posts: [], currentPage: 0, numPage: 0, numPost: 0, numPostByPage: 0 },
-    language: { active: 'en', texts: [] }
+    blog: {
+        posts: [],
+        currentPage: 0,
+        numPage: 0,
+        numPost: 0,
+        numPostByPage: 0
+    },
+    language: {
+        active: 'en',
+        texts: []
+    }
 };
 
 const getters = {
