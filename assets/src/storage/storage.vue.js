@@ -1,3 +1,38 @@
+// VUEX
+const state = {
+    blog: {
+        posts: [],
+        currentPage: 0,
+        numPage: 0,
+        numPost: 0,
+        numPostByPage: 0
+    },
+    language: {
+        active: 'en',
+        content: []
+    }
+};
+
+
+const getters = {
+    postActive: state => {
+        return state.blog.posts.filter(post => post.active);
+    }
+};
+
+
+const mutations = {
+    updatePostList: (state, payload) => {
+        state.blog.posts = payload;
+    },
+    setLanguage: (state, payload) => {
+        state.language.active = payload.active;
+        state.language.content = payload.content;
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////
 let sportStorages = this;
 
 if (!window.applicationCache) {
@@ -28,6 +63,7 @@ function saveIntoStorage(pKey, pValue, pJson = false) {
         localStorage.setItem(pKey, JSON.stringify(pValue));
     };
 };
+
 
 function getFromStorage(pKey, pJson = false) {
 

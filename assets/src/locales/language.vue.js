@@ -14,32 +14,37 @@ AppSetting.languages = {
         "homeSubTitle": "Here you will find help to learn how to create <br>  your multi platform apps with"
     },
     "es": {
-        "appName": "FerrusLogic S.A",
+        "appName": "FerrusLogic S.A Es",
         "title": "FerrusLogic S.A - Desarrollo de Software.",
         "homeTitle": "Bienvenidos!",
         "homeSubTitle": "Aquí encontrará ayuda para aprender a crear <br> aplicaciones multi-plataforma con"
     }
 };
 
-AppSetting.ActiveLanguage = this.AppSetting.languages.en;
+this.AppSetting.ActiveLanguage = this.AppSetting.languages.en;
 
-function activeLanguage(pLanguage) {
+function activeLanguage() {
 
-    if (pLanguage === null || pLanguage === undefined) {
+    var tLanguage = getFromStorage('language');
+
+    if (tLanguage != "es" && tLanguage != "en") {
         if (this.browserDetails.language != "es" && this.browserDetails.language != "en") {
-            pLanguage = "en";
+            tLanguage = "en";
+        } else {
+            tLanguage = this.browserDetails.language;
         };
     };
 
-    saveIntoStorage('language', pLanguage);
+    saveIntoStorage('language', tLanguage);
 
-    if (pLanguage === 'es') {
-        AppSetting.ActiveLanguage = this.AppSetting.languages.es;
+    if (tLanguage === 'es') {
+        this.AppSetting.ActiveLanguage = this.AppSetting.languages.es;
+        this.AppSetting.language = 'es';
+
     } else {
-        AppSetting.ActiveLanguage = this.AppSetting.languages.en;
+        this.AppSetting.ActiveLanguage = this.AppSetting.languages.en;
+        this.AppSetting.language = 'en';
     };
-    return true;
 };
 
-
-activeLanguage(language);
+activeLanguage();

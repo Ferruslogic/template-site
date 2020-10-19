@@ -16,5 +16,6 @@
         "LiveCode Script",
         "LiveCode Builder"
     ],
-    "postFolder": "01/en/"
+    "postFolder": "01/en/",
+    "active": true
 }]

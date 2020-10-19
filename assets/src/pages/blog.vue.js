@@ -16,13 +16,7 @@ var pagBlog = {
     </div> -->
 
     <div v-else>
- 
-        <div class="col-12" dark>
-        <input id="input-search" type="text" placeholder="Search..." style="margin: 10px 5px;width: 100%;padding: 5px;" >
-    </div>
 
-
-<v-divider />
   <template>
     <v-item-group>
     <v-container>

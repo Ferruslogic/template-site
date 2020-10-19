@@ -1,50 +1,11 @@
 /* Fetch API Serve v0.0.1b */
 var AppSetting = this;
-
+this.AppSetting.posts = new Array();
 const baseUrlPost = './assets/src/data/posts/';
-
-
-//  async mounted () {
-//     try {
-//       const response = await fetch("http://localhost:1337/restaurants", {
-//         method: 'GET',
-//         headers: this.headers,
-//       }).then(this.checkStatus)
-//         .then(this.parseJSON);
-//         this.restaurants = response
-//     } catch (error) {
-//       this.error = error
-//     }
-//   };
-
-//    const allCategories = await fetch("http://localhost:1337/categories", {
-//           method: 'GET',
-//           headers: this.headers,
-//         }).then(this.checkStatus)
-//           .then(this.parseJSON);
-//           this.allCategories = allCategories
-//     } catch (error) {
-//       this.error = error
-//     };
-
-//   fetch('http://localhost:1337/restaurants', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     name: 'Dolemon Sushi',
-//     description: 'Unmissable Japanese Sushi restaurant. The cheese and salmon makis are delicious',
-//     categories: [3],
-//   }),
-// })
-//   .then(response => response.json())
-//   .then(data => console.log(data));
-
 
 /** Posts */
 async function API_getPostList() {
-    var result = await fetch(baseUrlPost + 'post-list.json', {
+    var result = await fetch(baseUrlPost + 'postList.json', {
             method: 'GET',
             headers: this.headers,
         })
@@ -93,10 +54,7 @@ async function API_getPostView(pPostId) {
     };
 
     const kPostPath = `${baseUrlPost + pPostId}.html`;
-    const kPostId = `post${pPostId}`;
-
-
-
+    const kPostId = `post-${pPostId}`;
 
     var result = await fetch(kPostPath, {
             method: 'GET',
