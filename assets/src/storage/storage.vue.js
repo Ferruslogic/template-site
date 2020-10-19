@@ -11,6 +11,15 @@ const state = {
     language: {
         active: 'en',
         texts: []
+    },
+    menu: {
+        icons: [
+            'home',
+            'book',
+            'briefcase-download',
+            'account-group',
+            'contacts'
+        ]
     }
 };
 

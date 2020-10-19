@@ -11,17 +11,11 @@ Vue.component('base-menu', {
                 </v-btn>
             </div>
         </div> `,
-    data: () => ({
-        icons: [
-            'home',
-            'book',
-            'briefcase-download',
-            'account-group',
-            'contacts'
-        ],
-        menuItems: vItemMenu,
-        systemDark: false,
-    })
+    computed: {
+        menuItems: function() {
+            return this.$store.state.language.texts.menuItems;
+        }
+    }
 });
 
 /* Drawer of app */

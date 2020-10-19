@@ -1,5 +1,6 @@
 Vuetify.config.silent = true;
 
+
 var vm = new Vue({
     el: '#app',
     router,
@@ -7,7 +8,7 @@ var vm = new Vue({
     vuetify: new Vuetify({
         theme: {
             dark: false
-        }
+        },
     }),
     template: `
     <div>

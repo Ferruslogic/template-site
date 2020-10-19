@@ -10,13 +10,55 @@ AppSetting.languages = {
         "appName": "FerrusLogic S.A",
         "title": "FerrusLogic S.A - Software Development.",
         "homeTitle": "Welcome!",
-        "homeSubTitle": "Here you will find help to learn how to create <br>  your multi platform apps with"
+        "homeSubTitle": "Here you will find help to learn how to create <br>  your multi platform apps with",
+        "menuItems": [{
+                "label": 'Home',
+                "path": '/'
+            },
+            {
+                "label": 'Blog',
+                "path": '/blog'
+            },
+            {
+                "label": 'Projects',
+                "path": '/software'
+            },
+            {
+                "label": 'About',
+                "path": '/about'
+            },
+            {
+                "label": 'Contact',
+                "path": '/contact'
+            },
+        ]
     },
     "es": {
         "appName": "FerrusLogic S.A Es",
         "title": "FerrusLogic S.A - Desarrollo de Software.",
         "homeTitle": "Bienvenidos!",
-        "homeSubTitle": "Aquí encontrará ayuda para aprender a crear <br> aplicaciones multi-plataforma con"
+        "homeSubTitle": "Aquí encontrará ayuda para aprender a crear <br> aplicaciones multi-plataforma con",
+        "menuItems": [{
+                "label": 'Inicio',
+                "path": '/'
+            },
+            {
+                "label": 'Blog',
+                "path": '/blog'
+            },
+            {
+                "label": 'Proyectos',
+                "path": '/software'
+            },
+            {
+                "label": 'Acerca de',
+                "path": '/about'
+            },
+            {
+                "label": 'Contacto',
+                "path": '/contact'
+            },
+        ]
     }
 };
 
