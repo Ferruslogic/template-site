@@ -14,10 +14,9 @@ var singleBlog = {
             <p v-html="htmlNfp"> </p>
             </v-alert>
         </div>
-    
-    <div v-else class="container fluid px-0"> 
-        <span v-html="html"></span>
-    </div>
+        <div v-else class="container fluid px-0" style="max-width: 920px;min-width: 200px;width: 75%;">
+            <span v-html="html"></span>
+        </div>
 
     </div>
     `,

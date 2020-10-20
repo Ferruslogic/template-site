@@ -145,7 +145,7 @@ Vue.component('base-footer', {
                                                 <slot/>
                                                 <v-spacer></v-spacer><v-spacer></v-spacer>
                                         </template>
-                                        <span>{{ s.label}}</span>
+                                        <span> {{toFollowIn}}  {{ s.label}}</span>
                                         <v-spacer></v-spacer>
                                         </v-tooltip>
                                     </a>
@@ -162,11 +162,11 @@ Vue.component('base-footer', {
         </div> `,
     data: () => ({
         social: [{
-            label: 'FerrusLogic in Facebook',
+            label: 'Facebook',
             icon: 'mdi-facebook',
             url: '#'
         }, {
-            label: 'FerrusLogic in GitHub',
+            label: 'GitHub',
             icon: 'mdi-github',
             url: 'https://github.com/Ferruslogic/'
         }],
@@ -174,6 +174,9 @@ Vue.component('base-footer', {
     computed: {
         appName: function() {
             return this.$store.state.language.texts.appName;
+        },
+        toFollowIn: function() {
+            return this.$store.state.language.texts.toFollowIn;
         }
     }
 });
