@@ -10,24 +10,35 @@ Vue.component('base-menu', {
                     {{ menuitem.label }}
                 </v-btn>
 
-                <v-btn  outlined color="success"  @click="onClick">
-                 <v-icon left>mdi-google-translate</v-icon> {{languageActive}}
-                </v-btn>
+                <changer-language />
             </div>
         </div> `,
+    computed: {
+        menuItems: function() {
+            return this.$store.state.language.texts.menuItems;
+        }
+    }
+});
+
+
+/**Button changer language */
+Vue.component('changer-language', {
+    template: `
+    <v-btn  outlined color="success"  @click="onClick">
+        <v-icon left>mdi-google-translate</v-icon> {{languageActive}}
+    </v-btn>
+    `,
     methods: {
         onClick: function() {
             changerLanguage();
         }
     },
     computed: {
-        menuItems: function() {
-            return this.$store.state.language.texts.menuItems;
-        },
         languageActive: function() {
             return this.$store.state.language.active;
-        },
+        }
     }
+
 });
 
 /* Drawer of app */
@@ -69,7 +80,7 @@ Vue.component('base-drawer', {
         icons: [
             'home',
             'book',
-            'briefcase-download',
+            'briefcase',
             'account-group',
             'contacts'
         ],

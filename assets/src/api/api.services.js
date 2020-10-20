@@ -5,11 +5,15 @@ const baseUrlPost = './assets/src/data/posts/';
 
 /** Posts */
 async function API_getPostList() {
+    let status = 200;
     var result = await fetch(baseUrlPost + 'postList.json', {
             method: 'GET',
-            headers: this.headers,
+            mode: 'same-origin'
         })
-        .then(response => response.json())
+        .then(response => {
+            status = response.status;
+            return response.json()
+        })
         .then(data => {
             saveIntoStorage('posts', data, true);
             return data;
@@ -41,8 +45,9 @@ function API_ValidatedRoutePost(pPostId) {
 
 async function API_getPostView(pPostId) {
     let array = this.AppSetting.posts;
-    let folder = ""
+    let folder = "";
     let locales = store.state.language.active;
+    let status = 200;
 
     array.forEach(element => {
         if (element.id === pPostId) {
@@ -60,20 +65,29 @@ async function API_getPostView(pPostId) {
 
     var result = await fetch(kPostPath, {
             method: 'GET',
-            headers: this.headers,
+            mode: 'same-origin'
         })
-        .then(response => response.text())
+        .then(response => {
+            console.warn('status', response.status);
+            status = response.status;
+            return response.text()
+        })
         .then(data => {
+
             saveIntoStorage(kPostId, data, true);
             return data;
         })
         .catch(error => {
-            let inCache = getFromStorage(kPostId, true);
-            if (inCache != null) {
-                return inCache;
-            };
+            // let inCache = getFromStorage(kPostId, true);
+            // if (inCache != null) {
+            //     return inCache;
+            // };
+            console.warn(status);
             return error;
         });
 
-    return result;
+    if (status === 200) {
+        return result;
+    }
+
 }
