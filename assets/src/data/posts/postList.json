@@ -11,7 +11,7 @@
     "thumbnail": "../../../assets/public/images/posts/01/thumbnail.jpg",
     "link": {
         "previous": "",
-        "current": "./assets/src/data/posts/01/en/",
+        "current": "./assets/src/data/posts/01/",
         "next": ""
     },
     "tag": [
@@ -22,6 +22,6 @@
         "LiveCode Script",
         "LiveCode Builder"
     ],
-    "postFolder": "01/en/",
+    "postFolder": "01/",
     "active": true
 }]

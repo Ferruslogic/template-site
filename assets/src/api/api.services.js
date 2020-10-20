@@ -42,6 +42,7 @@ function API_ValidatedRoutePost(pPostId) {
 async function API_getPostView(pPostId) {
     let array = this.AppSetting.posts;
     let folder = ""
+    let locales = store.state.language.active;
 
     array.forEach(element => {
         if (element.id === pPostId) {
@@ -50,8 +51,9 @@ async function API_getPostView(pPostId) {
     });
 
     if (folder != undefined) {
-        pPostId = folder + pPostId;
+        pPostId = `${folder + locales}/${pPostId}`;
     };
+
 
     const kPostPath = `${baseUrlPost + pPostId}.html`;
     const kPostId = `post-${pPostId}`;
