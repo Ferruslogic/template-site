@@ -1,7 +1,13 @@
 [{
     "id": "livecode-syntax-in-vs-code",
-    "title": "LiveCode syntax in VS Code.",
-    "content": "Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code.",
+    "en": {
+        "title": "LiveCode syntax in VS Code.",
+        "content": "Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code."
+    },
+    "es": {
+        "title": "Sintaxis de LiveCode en VS Code.",
+        "content": "Hola comunidad de LiveCode, me gustaría anunciar que ya tenemos una extensión para resaltar nuestra sintaxis de LiveCode en VS Code."
+    },
     "thumbnail": "../../../assets/public/images/posts/01/thumbnail.jpg",
     "link": {
         "previous": "",

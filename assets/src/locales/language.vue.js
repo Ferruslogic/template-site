@@ -108,10 +108,6 @@ function changerLanguage() {
 
     activeLanguage();
 
-    if (store.state.blog.posts[0] != undefined) {
-        globalPostsList();
-    }
-
     setLoadedPage(false);
     return getFromStorage('language');
 };

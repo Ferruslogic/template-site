@@ -12,12 +12,22 @@ var pagBlog = {
               <v-lazy>
                   <v-hover v-slot:default="{ hover }"
                     open-delay="200">
+                   <div v-if="locate">
                       <base-grid-post  ripple
-                        :title="post.title"
+                        :title="post.es.title"
                         :thumbnail="post.thumbnail"
                         :postLink="'/blog/' + post.id"
-                        :content="post.content"
+                        :content="post.es.content"
                    />
+                  </div>
+                    <div v-else>
+                      <base-grid-post  ripple
+                        :title="post.en.title"
+                        :thumbnail="post.thumbnail"
+                        :postLink="'/blog/' + post.id"
+                        :content="post.en.content"
+                   />
+                  </div>
                   </v-hover>
                 </v-lazy>
               </v-item>
@@ -60,6 +70,11 @@ var pagBlog = {
     },
     mounted() {
         setLoadedPage(false);
+    },
+    computed: {
+        locate: function() {
+            return this.$store.state.language.active == 'es';
+        }
     }
 
 
