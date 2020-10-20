@@ -29,7 +29,7 @@ Vue.component('base-drawer', {
                 clipped app >
                     <v-img :aspect-ratio="7/3" :src="imageMenuPath" />
                         <v-list shaped>
-                            <v-list-item v-for="(item, index) in items"
+                            <v-list-item v-for="(item, index) in menuItems"
                             :key="index"
                             :to="item.path">
                                 <v-list-item-action>
@@ -48,6 +48,9 @@ Vue.component('base-drawer', {
                 return './assets/public/images/bg-menu-black.png';
             }
             return './assets/public/images/bg-menu.png';
+        },
+        menuItems: function() {
+            return this.$store.state.language.texts.menuItems;
         }
     },
     data: () => ({
@@ -58,7 +61,6 @@ Vue.component('base-drawer', {
             'account-group',
             'contacts'
         ],
-        items: vItemMenu
     }),
 });
 
@@ -161,7 +163,7 @@ Vue.component('base-grid-post', {
             <v-card-actions>
             
             <router-link :to="postLink">
-                <v-btn color=" lighten-2" text> Explore </v-btn>
+                <v-btn color=" lighten-2" text> {{ readMore }} </v-btn>
             </router-link>
             
             <v-spacer></v-spacer>
@@ -190,5 +192,10 @@ Vue.component('base-grid-post', {
         postLink: String,
         subtitle: String,
         postFolder: String
+    },
+    computed: {
+        readMore: function() {
+            return this.$store.state.language.texts.readMore;
+        }
     }
 });

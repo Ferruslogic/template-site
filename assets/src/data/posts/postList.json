@@ -1,1 +1,21 @@
-[{ "id": "livecode-syntax-in-vs-code", "title": "LiveCode syntax in VS Code.", "content": "Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code.", "thumbnail": "../../../assets/public/images/posts/01/thumbnail.jpg", "link": { "previous": "", "current": "./assets/src/data/posts/01/en/", "next": "" }, "tag": [ "vscode", "extension", "script editor", "script", "LiveCode Script", "LiveCode Builder" ], "postFolder": "01/en/", "active": true }]
+[{
+    "id": "livecode-syntax-in-vs-code",
+    "title": "LiveCode syntax in VS Code.",
+    "content": "Hello LiveCode community, I would like to announce that we already have an extension to highlight our LiveCode syntax in VS Code.",
+    "thumbnail": "../../../assets/public/images/posts/01/thumbnail.jpg",
+    "link": {
+        "previous": "",
+        "current": "./assets/src/data/posts/01/en/",
+        "next": ""
+    },
+    "tag": [
+        "vscode",
+        "extension",
+        "script editor",
+        "script",
+        "LiveCode Script",
+        "LiveCode Builder"
+    ],
+    "postFolder": "01/en/",
+    "active": true
+}]

@@ -1,22 +1,6 @@
-Vue.filter('format-thousands', function(value) {
-    // https://stackoverflow.com/a/2901298
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-});
-
 var pagBlog = {
     template: `
     <div>
-
-    <div v-if="loadingPage">
-    <progress-linear />
-    </div>
-
-    <!-- <div v-else-if="error" class="alert alert-danger">
-      Error al intentar cargar las publicaciones.
-    </div> -->
-
-    <div v-else>
-
   <template>
     <v-item-group>
     <v-container>
@@ -43,42 +27,34 @@ var pagBlog = {
       </v-item-group>
     </template>
     </div>
-    </div>
     `,
     data: () => ({
-        loadingPage: true,
         error: false,
-        textSearch: "",
-        posts: []
+        posts: [],
+        loaded: false
     }),
-    computed: {
-        countriesFilter: function() {
-            var textSearch = this.textSearch;
-            return this.countries.filter(function(el) {
-                return el.name.toLowerCase().indexOf(textSearch.toLowerCase()) !== -1;
-            });
-        }
-    },
-
     created: function() {
+        setLoadedPage(true);
         this.postsList();
-    },
 
+    },
     methods: {
         postsList: async function() {
             var it = this;
-
             try {
                 var data = await API_getPostList();
-                it.loadingPage = false;
                 it.posts = data;
 
-
             } catch (error) {
-                // pagBlog.error = true
-                // console.error("error:", error);
-            }
+                /*
+                pagBlog.error = true
+                */
+            };
+
         }
+    },
+    mounted() {
+        setLoadedPage(false);
     }
 
 

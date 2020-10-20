@@ -31,10 +31,13 @@ AppSetting.languages = {
                 "label": 'Contact',
                 "path": '/contact'
             },
-        ]
+        ],
+        "readMore": "Read more.",
+        "darkModeOn": "Dark Mode On",
+        "darkModeOff": "Dark Mode Off"
     },
     "es": {
-        "appName": "FerrusLogic S.A Es",
+        "appName": "FerrusLogic S.A",
         "title": "FerrusLogic S.A - Desarrollo de Software.",
         "homeTitle": "Bienvenidos!",
         "homeSubTitle": "Aquí encontrará ayuda para aprender a crear <br> aplicaciones multi-plataforma con",
@@ -58,7 +61,10 @@ AppSetting.languages = {
                 "label": 'Contacto',
                 "path": '/contact'
             },
-        ]
+        ],
+        "readMore": "Leer más.",
+        "darkModeOn": "Activar modo oscuro",
+        "darkModeOff": "Desactivar modo oscuro"
     }
 };
 

@@ -55,9 +55,19 @@ const actions = {
 const store = new Vuex.Store({ state, getters, mutations, actions });
 const { mapActions, mapGetters, mapState } = Vuex;
 
-/**************************************** Filters ***************************************/
-/** * computed:{ searchNoticia: function () { return this.lists.filter((item) => { return item.noticia_titulo_cas.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()) || item.noticia_titulo_cas.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()) || item.lanak_titulo_cas.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()) || item.noticia_fecha.toLowerCase().includes(this.noticia_titulo_cas.toLowerCase()); }); } */
 
+
+
+function setLoadedPage(pLoaded) {
+    if (typeof pLoaded === 'boolean') {
+        store.commit('loadedPage', pLoaded);
+    } else {
+        store.commit('loadedPage', !state.loaded);
+    }
+    return state.loaded;
+};
+
+/**************************************** Filters ***************************************/
 function getFilteredByKey(array, key, value) {
     return array.filter(function(e) { return e[key] == value; });
 }

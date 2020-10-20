@@ -1,6 +1,5 @@
 Vuetify.config.silent = true;
 
-
 var vm = new Vue({
     el: '#app',
     router,
@@ -12,7 +11,6 @@ var vm = new Vue({
     }),
     template: `
     <div>
-    <title>{{appName}}</title>
 
     <div v-if="loadingPage">
     <loading-page />
@@ -44,20 +42,12 @@ var vm = new Vue({
 
             activeLanguage();
         },
-        setLoadedPage(pLoaded) {
-            if (typeof pLoaded === 'boolean') {
-                this.syncLoadedPage(pLoaded);
-            } else {
-                this.syncLoadedPage(!state.loaded);
-            }
-            return state.loaded;
-        },
     },
     beforeCreate() {
         state.loaded = true;
     },
     created() {
-        //******************************* STARTUP SETTING ***************************************/
+        //******************************* STARTUP SETTING ***************************************//
         //////////////////////////////////////  Dark Mode ///////////////////////////////////////
         let darkActive = window.localStorage.getItem('darkActive');
 
@@ -87,14 +77,14 @@ var vm = new Vue({
         // data asynchronously, you could wait until that process returns
         this.error = false;
         this.overlay = false;
-        this.setLoadedPage(false);
+        setLoadedPage(false);
     },
     computed: {
         ...mapGetters([
             'postActive'
         ]),
         appName: function() {
-            return this.$store.state.language.appName;
+            return this.$store.state.language.title;
         },
         loadingPage: function() {
             return this.$store.state.loaded;
