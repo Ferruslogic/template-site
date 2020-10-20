@@ -50,5 +50,4 @@ let router = new VueRouter({
         redirect: '/'
 
     }]
-
 });

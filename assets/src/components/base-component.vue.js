@@ -9,12 +9,24 @@ Vue.component('base-menu', {
                 :to="menuitem.path">
                     {{ menuitem.label }}
                 </v-btn>
+
+                <v-btn  outlined color="success"  @click="onClick">
+                 <v-icon left>mdi-google-translate</v-icon> {{languageActive}}
+                </v-btn>
             </div>
         </div> `,
+    methods: {
+        onClick: function() {
+            changerLanguage();
+        }
+    },
     computed: {
         menuItems: function() {
             return this.$store.state.language.texts.menuItems;
-        }
+        },
+        languageActive: function() {
+            return this.$store.state.language.active;
+        },
     }
 });
 

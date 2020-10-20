@@ -67,6 +67,16 @@ function setLoadedPage(pLoaded) {
     return state.loaded;
 };
 
+
+async function globalPostsList() {
+    try {
+        var data = await API_getPostList();
+        store.commit('updatePostList', data);
+    } catch (error) {
+
+    };
+}
+
 /**************************************** Filters ***************************************/
 function getFilteredByKey(array, key, value) {
     return array.filter(function(e) { return e[key] == value; });

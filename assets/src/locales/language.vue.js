@@ -96,12 +96,22 @@ function activeLanguage() {
 
 
 function changerLanguage() {
+    setLoadedPage(true);
+
     var tLanguage = getFromStorage('language');
+
     if (tLanguage == 'en') {
         saveIntoStorage('language', 'es');
     } else {
         saveIntoStorage('language', 'en');
-    }
+    };
+
     activeLanguage();
-    return getFromStorage('language')
+
+    if (store.state.blog.posts[0] != undefined) {
+        globalPostsList();
+    }
+
+    setLoadedPage(false);
+    return getFromStorage('language');
 };
