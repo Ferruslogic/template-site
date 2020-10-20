@@ -51,15 +51,13 @@ var pagBlog = {
     methods: {
         ...mapActions([
             'syncSetLanguage',
-            'syncLoadedPage',
-            'updatePostList'
+            'syncLoadedPage'
         ]),
         postsList: async function() {
             var it = this;
             try {
                 var data = await API_getPostList();
                 it.posts = data;
-                store.commit('updatePostList', data);
             } catch (error) {
                 /*
                 pagBlog.error = true

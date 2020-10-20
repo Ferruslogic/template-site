@@ -1,13 +1,6 @@
 /* VUEX */
 const state = {
     loaded: true,
-    blog: {
-        posts: [],
-        currentPage: 0,
-        numPage: 0,
-        numPost: 0,
-        numPostByPage: 0
-    },
     language: {
         active: 'en',
         texts: []
@@ -28,9 +21,6 @@ const getters = {
 };
 
 const mutations = {
-    updatePostList: (state, payload) => {
-        state.blog.posts = payload;
-    },
     setLanguage: (state, payload) => {
         state.language.active = payload.active;
         state.language.texts = payload.texts;
@@ -41,9 +31,6 @@ const mutations = {
 };
 
 const actions = {
-    syncUpdatePostList: ({ commit }, payload) => {
-        commit("updatePostList", payload);
-    },
     syncSetLanguage: ({ commit }, payload) => {
         commit("setLanguage", payload);
     },

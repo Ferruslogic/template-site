@@ -31,6 +31,9 @@ Vue.component('changer-language', {
     methods: {
         onClick: function() {
             changerLanguage();
+            if (this.$route.path.indexOf("/blog/") === 0) {
+
+            };
         }
     },
     computed: {

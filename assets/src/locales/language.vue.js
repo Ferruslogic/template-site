@@ -34,7 +34,8 @@ AppSetting.languages = {
         ],
         "readMore": "Read more.",
         "darkModeOn": "Dark Mode On",
-        "darkModeOff": "Dark Mode Off"
+        "darkModeOff": "Dark Mode Off",
+        "postNotFound": "<h1> The publication could not be accessed: </h1><br><ul><li>Check your connection.</li><li> Try switching languages.</li><li>If you still cannot access this publication, please report it to support @ferruslogic.com.</li></ul>"
     },
     "es": {
         "appName": "FerrusLogic S.A",
@@ -64,7 +65,9 @@ AppSetting.languages = {
         ],
         "readMore": "Leer más.",
         "darkModeOn": "Activar modo oscuro",
-        "darkModeOff": "Desactivar modo oscuro"
+        "darkModeOff": "Desactivar modo oscuro",
+        "postNotFound": " <h1>No se pudo acceder a la publicación:</h1><br><ul><li>Compruebe su conexión.</li><li>Pruebe cambiar de idioma.</li><li>Si siguen sin poder acceder a esta publicación repórtelo a soporte@ferruslogic.com.</li></ul>"
+
     }
 };
 
@@ -90,7 +93,9 @@ function activeLanguage() {
         tem.texts = this.AppSetting.languages.en;
     };
 
+    this.AppSetting.languages.active = tem.active
     store.commit('setLanguage', tem);
+
 };
 
 

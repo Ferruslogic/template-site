@@ -43,7 +43,7 @@ function API_ValidatedRoutePost(pPostId) {
 }
 
 
-async function API_getPostView(pPostId) {
+function API_getPostView(pPostId) {
     let array = this.AppSetting.posts;
     let folder = "";
     let locales = store.state.language.active;
@@ -62,32 +62,34 @@ async function API_getPostView(pPostId) {
 
     const kPostPath = `${baseUrlPost + pPostId}.html`;
     const kPostId = `post-${pPostId}`;
+    let tem = [];
 
-    var result = await fetch(kPostPath, {
+    var result = fetch(kPostPath, {
             method: 'GET',
             mode: 'same-origin'
         })
         .then(response => {
-            console.warn('status', response.status);
             status = response.status;
             return response.text()
         })
         .then(data => {
-
             saveIntoStorage(kPostId, data, true);
-            return data;
+            tem.data = data
+            tem.status = status
+            return tem;
         })
         .catch(error => {
-            // let inCache = getFromStorage(kPostId, true);
-            // if (inCache != null) {
-            //     return inCache;
-            // };
-            console.warn(status);
+            let inCache = getFromStorage(kPostId, true);
+            if (inCache != null && inCache != undefined) {
+                return inCache;
+            };
             return error;
         });
 
     if (status === 200) {
         return result;
+    } else {
+        return null;
     }
 
 }
