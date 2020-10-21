@@ -20,32 +20,6 @@ Vue.component('base-menu', {
     }
 });
 
-Vue.component('back-to-top', {
-    template: `
-      <div>
-          <a id="back2Top" title="Back to top" href="#">&#10148;</a>
-      </div>
-    `,
-    methods: {
-        backToTop: function() {
-            $(window).scroll(function() {
-                var height = $(window).scrollTop();
-                if (height > 100) {
-                    $('#back2Top').fadeIn();
-                } else {
-                    $('#back2Top').fadeOut();
-                }
-            });
-            $(document).ready(function() {
-                $("#back2Top").click(function(event) {
-                    event.preventDefault();
-                    $("html, body").animate({ scrollTop: 0 }, "slow");
-                    return false;
-                });
-            });
-        }
-    }
-});
 
 /**Button changer language */
 Vue.component('changer-language', {
@@ -266,7 +240,7 @@ Vue.component('base-grid-post', {
             <v-card-actions>
             
             <router-link :to="postLink">
-                <v-btn color=" lighten-2" text> {{ readMore }} </v-btn>
+                <v-btn class="orange--text" text> {{ readMore }} </v-btn>
             </router-link>
             
             <v-spacer></v-spacer>
