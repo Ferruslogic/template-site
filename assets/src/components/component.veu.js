@@ -61,45 +61,6 @@ Vue.component('frl-hero', {
         </section> `
 });
 
-/* Button changer to dark mode */
-Vue.component('btn-dark-mode', {
-    template: `
-        <div>
-            <v-tooltip v-if="!$vuetify.theme.dark" bottom>
-                <template v-slot:activator="{ on }">
-                    <v-btn v-on="on" color="info" icon raised rounded @click="onClick">
-                        <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
-                    </v-btn>
-                </template> <span>{{ darkModeOn }}</span>
-                </v-tooltip>
-                <v-tooltip v-else bottom>
-
-                <template v-slot:activator="{ on }">
-                    <v-btn v-on="on" color="info"  icon raised rounded @click="onClick">
-                        <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
-                    </v-btn>
-                </template> <span> {{ darkModeOff }}</span>
-                </v-tooltip>
-        </div> `,
-    methods: {
-        onClick: function() {
-            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-            if (this.$vuetify.theme.dark) {
-                window.localStorage.setItem('darkActive', "1");
-            } else {
-                window.localStorage.setItem('darkActive', "0");
-            };
-        }
-    },
-    computed: {
-        darkModeOn: function() {
-            return this.$store.state.language.texts.darkModeOn;
-        },
-        darkModeOff: function() {
-            return this.$store.state.language.texts.darkModeOff;
-        }
-    }
-});
 
 
 Vue.component('loading-page', {

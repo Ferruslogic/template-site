@@ -21,12 +21,16 @@ var vm = new Vue({
         <main-layout />
     </div> 
 
+    <v-btn v-scroll="onScroll" v-show="fab" fab dark fixed bottom right color="primary" @click="toTop">
+        <v-icon>keyboard_arrow_up</v-icon>
+    </v-btn>
     </div>
     `,
 
     data: () => ({
         textSearch: "",
-        countries: []
+        countries: [],
+        fab: false
     }),
 
     methods: {
@@ -43,6 +47,15 @@ var vm = new Vue({
 
             activeLanguage();
         },
+        onScroll(e) {
+            if (typeof window === 'undefined') return
+            const top = window.pageYOffset || e.target.scrollTop || 0
+            this.fab = top > 20
+        },
+        toTop() {
+            this.$vuetify.goTo(0)
+        }
+
     },
     beforeCreate() {
         state.loaded = true;

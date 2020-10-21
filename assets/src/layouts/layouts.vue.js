@@ -4,7 +4,6 @@ Vue.component('main-layout', {
     <div>
         <v-app>
             <base-app-top-bar />
-
             <v-main>
                 <v-container fluid class="container extra-padding">
                     <v-fade-transition mode="out-in">
@@ -13,6 +12,7 @@ Vue.component('main-layout', {
                 </v-container>
             </v-main>
             <base-footer />
+
         </v-app>
     </div>
     `

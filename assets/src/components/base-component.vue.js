@@ -20,6 +20,32 @@ Vue.component('base-menu', {
     }
 });
 
+Vue.component('back-to-top', {
+    template: `
+      <div>
+          <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+      </div>
+    `,
+    methods: {
+        backToTop: function() {
+            $(window).scroll(function() {
+                var height = $(window).scrollTop();
+                if (height > 100) {
+                    $('#back2Top').fadeIn();
+                } else {
+                    $('#back2Top').fadeOut();
+                }
+            });
+            $(document).ready(function() {
+                $("#back2Top").click(function(event) {
+                    event.preventDefault();
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    return false;
+                });
+            });
+        }
+    }
+});
 
 /**Button changer language */
 Vue.component('changer-language', {
@@ -66,6 +92,10 @@ Vue.component('base-drawer', {
                                 </v-list-item-content>
                             </v-list-item>
                         </v-list>
+                        <v-spacer></v-spacer>
+                        <v-divider></v-divider>
+                        <changer-language style="width: 95%;margin: 2%;"/>
+
             </v-navigation-drawer>
         </div> `,
     computed: {
@@ -90,11 +120,53 @@ Vue.component('base-drawer', {
     }),
 });
 
+/* Button changer to dark mode */
+Vue.component('btn-dark-mode', {
+    template: `
+        <div>
+            <v-tooltip v-if="!$vuetify.theme.dark" bottom>
+                <template v-slot:activator="{ on }">
+                    <v-btn v-on="on" color="info" icon raised rounded @click="onClick">
+                        <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
+                    </v-btn>
+                </template> <span>{{ darkModeOn }}</span>
+                </v-tooltip>
+                <v-tooltip v-else bottom>
+
+                <template v-slot:activator="{ on }">
+                    <v-btn v-on="on" color="info"  icon raised rounded @click="onClick">
+                        <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
+                    </v-btn>
+                </template> <span> {{ darkModeOff }}</span>
+                </v-tooltip>
+        </div> `,
+    methods: {
+        onClick: function() {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            if (this.$vuetify.theme.dark) {
+                window.localStorage.setItem('darkActive', "1");
+            } else {
+                window.localStorage.setItem('darkActive', "0");
+            };
+        }
+    },
+    computed: {
+        darkModeOn: function() {
+            return this.$store.state.language.texts.darkModeOn;
+        },
+        darkModeOff: function() {
+            return this.$store.state.language.texts.darkModeOff;
+        }
+    }
+});
+
 /*  App top bar */
 Vue.component('base-app-top-bar', {
     template: `
         <div>
             <div id="top-bar">
+                 <!--   the backtotop component -->
+                 <back-to-top />
                 <v-app-bar elevate-on-scroll class="overflow-y-auto v-app-bar--fixed " 
                     style="z-index: 1008;">
                     <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
@@ -128,6 +200,8 @@ Vue.component('base-footer', {
     store,
     template: ` 
         <div>
+
+
             <v-footer id="home-footer" min-height="72" d-block pa-2>
                 <v-container>
                      <v-row>
