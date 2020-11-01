@@ -18,7 +18,7 @@ var pageContact = {
             label="Name"
             required
           ></v-text-field>
-      
+
           <v-text-field
             v-model="email"
             :rules="emailRules"
@@ -39,10 +39,10 @@ var pageContact = {
                     </div>
                   </template>
                 </v-textarea>
-      
-        
-      
-        
+
+
+
+
 
 
         <v-btn
@@ -57,7 +57,7 @@ var pageContact = {
         <v-btn @click="reset">
           clear
         </v-btn>
-      
+
         </v-form>
     </v-card>
     `,
@@ -80,13 +80,16 @@ var pageContact = {
             v => !!v || 'Message is required',
             v => (v && v.length <= 512) || 'Message must be less than 512 characters',
         ],
-
     }),
 
     methods: {
 
         submit() {
-            this.$refs.form.validate()
+            // this.$refs.form.validate();
+            API_submitEmail(this.$refs.form);
+            const from = this.$refs.from;
+            from.submit();
+            //
         },
 
         validate() {

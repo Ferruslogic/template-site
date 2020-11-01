@@ -14,12 +14,12 @@ var vm = new Vue({
     <div>
 
     <div v-if="loadingPage">
-    <loading-page />
+        <loading-page />
     </div>
 
     <div v-else>
         <main-layout />
-    </div> 
+    </div>
 
     <v-btn v-scroll="onScroll" v-show="fab" fab dark fixed bottom right color="primary" @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>

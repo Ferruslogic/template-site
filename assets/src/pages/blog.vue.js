@@ -41,7 +41,6 @@ var pagBlog = {
     data: () => ({
         error: false,
         posts: [],
-        loaded: false
     }),
     created: function() {
         setLoadedPage(true);
@@ -63,7 +62,7 @@ var pagBlog = {
                 pagBlog.error = true
                 */
             };
-
+            //
         }
     },
     mounted() {

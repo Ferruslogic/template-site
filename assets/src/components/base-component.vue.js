@@ -1,6 +1,6 @@
 /* Menu */
 Vue.component('base-menu', {
-    template: ` 
+    template: `
         <div>
             <div class="d-none d-md-block mr-3">
                 <v-btn class="subtitle-1 text-capitalize font-weight mx-1"
@@ -31,9 +31,6 @@ Vue.component('changer-language', {
     methods: {
         onClick: function() {
             changerLanguage();
-            if (this.$route.path.indexOf("/blog/") === 0) {
-
-            };
         }
     },
     computed: {
@@ -62,7 +59,7 @@ Vue.component('base-drawer', {
                                     <v-icon>mdi-{{ icons[index] }}</v-icon>
                                 </v-list-item-action>
                                 <v-list-item-content>
-                                     <v-list-item-title>{{ item.label }}</v-list-item-title>
+                                    <v-list-item-title>{{ item.label }}</v-list-item-title>
                                 </v-list-item-content>
                             </v-list-item>
                         </v-list>
@@ -139,9 +136,8 @@ Vue.component('base-app-top-bar', {
     template: `
         <div>
             <div id="top-bar">
-                 <!--   the backtotop component -->
-                 <back-to-top />
-                <v-app-bar elevate-on-scroll class="overflow-y-auto v-app-bar--fixed " 
+                <!--   the backtotop component -->
+                <v-app-bar elevate-on-scroll class="overflow-y-auto v-app-bar--fixed "
                     style="z-index: 1008;">
                     <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
                         <router-link to="/">
@@ -152,7 +148,7 @@ Vue.component('base-app-top-bar', {
                     <btn-dark-mode class="d-none d-md-block"/>
                     </v-app-bar>
             </div>
-            
+
             <base-drawer v-model="drawer" id="base-drawer-mobile" />
 
         </div> `,
@@ -172,23 +168,23 @@ Vue.component('base-app-top-bar', {
 /* Footer of app */
 Vue.component('base-footer', {
     store,
-    template: ` 
+    template: `
         <div>
 
 
             <v-footer id="home-footer" min-height="72" d-block pa-2>
                 <v-container>
-                     <v-row>
-                         <v-col cols="12" md="6">
-                             <div class="d-flex flex-wrap justify-md-start justify-center">
+                    <v-row>
+                        <v-col cols="12" md="6">
+                            <div class="d-flex flex-wrap justify-md-start justify-center">
                                 <div v-for="(s, i) in social">
                                     <a :href="s.url" target="_blank" :rel="s.label">
-                                         <v-tooltip top :key="i"
-                                          class="pa-1 pa-md-0 mr-4">
-                                        
+                                        <v-tooltip top :key="i"
+                                        class="pa-1 pa-md-0 mr-4">
+
                                         <template v-slot:activator="{ on, attrs }">
-                                               <v-btn class="mx-1" icon v-bind="attrs" v-on="on" x-large>
-                                                   <v-icon color="grey lighten-1"> {{s.icon}} </v-icon>
+                                            <v-btn class="mx-1" icon v-bind="attrs" v-on="on" x-large>
+                                                <v-icon color="grey lighten-1"> {{s.icon}} </v-icon>
                                                 </v-btn>
                                                 <slot/>
                                                 <v-spacer></v-spacer><v-spacer></v-spacer>
@@ -200,7 +196,7 @@ Vue.component('base-footer', {
                                 </div>
                             </div>
                         </v-col>
-                        
+
                         <v-col class="text-center text-md-right" cols="12" md="6" >
                             Copyright &copy; {{ new Date().getFullYear() }}, {{ appName }}
                         </v-col>
@@ -238,19 +234,19 @@ Vue.component('base-grid-post', {
                 <v-card-title> {{title}} </v-card-title>
                 <v-card-subtitle> {{subtitle}} </v-card-subtitle>
             <v-card-actions>
-            
+
             <router-link :to="postLink">
                 <v-btn class="orange--text" text> {{ readMore }} </v-btn>
             </router-link>
-            
+
             <v-spacer></v-spacer>
-            
+
             <v-btn icon @click="show = !show">
                 <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
             </v-btn>
-            
+
             </v-card-actions>
-            
+
             <v-expand-transition>
                 <div v-show="show">
                     <v-divider></v-divider>

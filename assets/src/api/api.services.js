@@ -93,3 +93,7 @@ function API_getPostView(pPostId) {
     }
 
 }
+
+function API_submitEmail(pForm) {
+    console.warn(pForm);
+}

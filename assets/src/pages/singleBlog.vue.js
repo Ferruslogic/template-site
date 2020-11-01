@@ -5,17 +5,18 @@ var singleBlog = {
     <div>
         <v-container>
         <div v-if="error">
-        <v-alert 
+            <v-alert
                 border="left"
                 colored-border
                 type="error"
                 elevation="2"
                 prominent
             >
-            <p v-html="htmlNfp"> </p>
+                <p v-html="htmlNfp"> </p>
             </v-alert>
         </div>
         <div v-else class="container fluid px-0">
+
             <span v-html="html"></span>
         </div>
     </v-container>
@@ -30,15 +31,20 @@ var singleBlog = {
     },
     methods: {
         getPost: function(id) {
+            this.$store.state.loaded = true;
+
             try {
                 var data = API_getPostView(id).then(res => {
                     this.html = res.data;
                     this.error = (res.status === 404);
                 });
+                this.$store.state.loaded = false;
             } catch (error) {
                 this.error = true;
+                this.$store.state.loaded = false;
                 return null;
             }
+
         }
     },
     watch: {
