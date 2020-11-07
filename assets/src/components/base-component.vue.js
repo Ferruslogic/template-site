@@ -272,3 +272,23 @@ Vue.component('base-grid-post', {
         }
     }
 });
+
+Vue.component('base-page-title', {
+    template: `
+    <div class="container text-center">
+        <h2 class="display-2 font-weight-bold mb-3"> {{ title }}</h2>
+        <div class="v-responsive mx-auto mb-8" style="width: 56px;">
+            <div class="v-responsive__content">
+                <hr role="separator" aria-orientation="horizontal" class="mb-1 v-divider theme--light">
+                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+            </div>
+        </div>
+    </div>
+    `,
+    props: {
+        title: {
+            type: String,
+            default: "Page title"
+        }
+    },
+});

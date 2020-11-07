@@ -84,12 +84,16 @@ var pageContact = {
 
     methods: {
 
+        getFormValues() {
+
+            return JSON.stringify(this.$refs.form.data)
+
+        },
+
         submit() {
-            // this.$refs.form.validate();
-            API_submitEmail(this.$refs.form);
-            const from = this.$refs.from;
-            from.submit();
-            //
+            this.$refs.form.validate();
+
+            API_submitEmail(this.name, this.email, this.message);
         },
 
         validate() {

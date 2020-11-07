@@ -71,6 +71,9 @@ var pagBlog = {
     computed: {
         locate: function() {
             return this.$store.state.language.active == 'es';
+        },
+        titlePage: function() {
+            return this.$store.state.language.active == 'es';
         }
     }
 

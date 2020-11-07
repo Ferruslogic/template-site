@@ -2,6 +2,7 @@
 var AppSetting = this;
 this.AppSetting.posts = new Array();
 const baseUrlPost = './assets/src/data/posts/';
+const baseUrlAPI = 'http://10.16.84.105:8010/apitest/';
 
 /** Posts */
 async function API_getPostList() {
@@ -94,6 +95,20 @@ function API_getPostView(pPostId) {
 
 }
 
-function API_submitEmail(pForm) {
-    console.warn(pForm);
-}
+
+
+function API_submitEmail(pName, pEmail, pMessage) {
+    let status = 200;
+
+    fetch(`${baseUrlAPI}mail.php`, {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                name: pName,
+                email: pEmail,
+                message: pMessage,
+            })
+        })
+        .then(response => response.json())
+        .then(console.log);
+};
