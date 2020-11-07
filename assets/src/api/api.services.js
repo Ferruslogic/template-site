@@ -2,6 +2,7 @@
 var AppSetting = this;
 this.AppSetting.posts = new Array();
 const baseUrlPost = './assets/src/data/posts/';
+const baseUrlProject = './assets/src/data/projects/';
 const baseUrlAPI = 'http://10.16.84.105:8010/apitest/';
 
 /** Posts */
@@ -94,6 +95,37 @@ function API_getPostView(pPostId) {
     }
 
 }
+
+async function API_getProjectsList() {
+    let status = 200;
+    var result = await fetch(baseUrlProject + 'projectsList.json', {
+            method: 'GET',
+            mode: 'same-origin'
+        })
+        .then(response => {
+            status = response.status;
+            return response.json()
+        })
+        .then(data => {
+            saveIntoStorage('projects', data, true);
+            return data;
+        })
+        .catch(error => {
+            let inCache = getFromStorage('projects', true);
+            if (inCache != null) {
+                return inCache;
+            };
+            return error;
+        });
+
+
+    this.AppSetting.posts = result;
+    saveIntoStorage('numProjects', result.length);
+    return result;
+}
+
+
+
 
 
 

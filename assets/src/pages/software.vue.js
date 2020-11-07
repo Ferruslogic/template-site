@@ -18,7 +18,7 @@ Vue.component('base-grid-product', {
             class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text"
             style="height: 100%;"
           >
-            Price {{price}}
+            $ {{price}}
           </div>
         </v-expand-transition>
       </v-img>
@@ -28,17 +28,6 @@ Vue.component('base-grid-product', {
         style="position: relative;"
       >
 
-        <v-btn
-              absolute
-              color="orange"
-              class="white--text"
-              fab
-              large
-              right
-              top
-              >
-                <v-icon>mdi-cart</v-icon>
-        </v-btn>
 
         <div class="font-weight-light grey--text title mb-2">
           {{ softwareTag }}
@@ -57,18 +46,19 @@ Vue.component('base-grid-product', {
       <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn icon>
+              <v-btn icon :href="documentLink" target="_blank">
                 <v-icon style="color: #ff7800;">mdi-file-document</v-icon>
               </v-btn>
 
-              <v-btn icon>
+              <v-btn icon :href="codeLink" target="_blank">
                 <v-icon style="color: #ff7800;">mdi-github</v-icon>
               </v-btn>
 
-              <v-btn icon>
-                <v-icon style="color: #ff7800;">mdi-share-variant</v-icon>
+              <v-btn icon :href="downloadLink" target="_blank">
+                <v-icon style="color: #ff7800;">mdi-archive-arrow-down</v-icon>
               </v-btn>
-            </v-card-actions>
+
+              </v-card-actions>
     </v-card>
   </v-hover>
   </div>
@@ -80,7 +70,7 @@ Vue.component('base-grid-product', {
         },
         price: {
             type: String,
-            default: "Free"
+            default: "00.00"
         },
         description: {
             type: String,
@@ -94,9 +84,18 @@ Vue.component('base-grid-product', {
             type: String,
             default: "software-Name"
         },
-        downloadLink: String,
-        codeLink: String,
-        documentLink: String
+        downloadLink: {
+            type: String,
+            default: "#"
+        },
+        codeLink: {
+            type: String,
+            default: "#"
+        },
+        documentLink: {
+            type: String,
+            default: "#"
+        }
     }
 });
 
@@ -113,19 +112,18 @@ var pageSoftware = {
               <v-lazy>
                   <v-hover v-slot:default="{ hover }"
                     open-delay="200">
-                  <div v-if="loading">
 
+                      <base-grid-product
+                        :softwareName ="product.id"
+                        :price ="product.price"
+                        :description ="product.en.description"
+                        :softwareTag ="product.en.Tag"
+                        :documentLink ="product.en.docLink"
+                        :codeLink ="product.repoLink"
+                        :downloadLink ="product.downloadLink"
 
-                      <base-grid-product />
+                      />
 
-
-                    </div>
-                    <div v-else>
-
-                      <base-grid-product />
-
-
-                  </div>
                   </v-hover>
                 </v-lazy>
               </v-item>
@@ -144,7 +142,7 @@ var pageSoftware = {
     created: function() {
 
         setLoadedPage(true);
-        this.postsList();
+        this.projectsList();
 
     },
 
@@ -154,10 +152,10 @@ var pageSoftware = {
             'syncLoadedPage'
         ]),
 
-        postsList: async function() {
+        projectsList: async function() {
             var it = this;
             try {
-                var data = await API_getPostList();
+                var data = await API_getProjectsList();
                 it.products = data;
             } catch (error) {
 
