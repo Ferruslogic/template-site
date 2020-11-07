@@ -141,6 +141,8 @@ function API_submitEmail(pName, pEmail, pMessage) {
                 message: pMessage,
             })
         })
-        .then(response => response.json())
-        .then(console.log);
+        .then(response => {
+            status = response.status;
+            return status;
+        });
 };

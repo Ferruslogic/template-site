@@ -17,16 +17,30 @@ var pageSoftware = {
                   <v-hover v-slot:default="{ hover }"
                     open-delay="200">
 
-                      <base-grid-product
-                        :softwareName ="product.id"
-                        :price ="product.price"
-                        :description ="product.en.description"
-                        :softwareTag ="product.en.Tag"
-                        :documentLink ="product.en.docLink"
-                        :codeLink ="product.repoLink"
-                        :downloadLink ="product.downloadLink"
+                    <div v-if="locate">
+                          <base-grid-product
+                            :softwareName ="product.id"
+                            :price ="product.price"
+                            :description ="product.es.description"
+                            :softwareTag ="product.es.Tag"
+                            :documentLink ="product.es.docLink"
+                            :codeLink ="product.repoLink"
+                            :downloadLink ="product.downloadLink"
 
-                      />
+                          />
+                      </div>
+
+                      <div v-else>
+                            <base-grid-product
+                            :softwareName ="product.id"
+                            :price ="product.price"
+                            :description ="product.en.description"
+                            :softwareTag ="product.en.Tag"
+                            :documentLink ="product.en.docLink"
+                            :codeLink ="product.repoLink"
+                            :downloadLink ="product.downloadLink"
+                          />
+                      </div>
 
                   </v-hover>
                 </v-lazy>
