@@ -2,6 +2,11 @@ var pagBlog = {
     template: `
     <div>
   <template>
+
+    <base-page-title
+      :title="titlePage"
+    />
+
     <v-item-group>
     <v-container>
       <v-row>
@@ -41,11 +46,11 @@ var pagBlog = {
     data: () => ({
         error: false,
         posts: [],
+        pageTitle: 'asd'
     }),
     created: function() {
         setLoadedPage(true);
         this.postsList();
-
     },
     methods: {
         ...mapActions([
@@ -58,11 +63,8 @@ var pagBlog = {
                 var data = await API_getPostList();
                 it.posts = data;
             } catch (error) {
-                /*
                 pagBlog.error = true
-                */
             };
-            //
         }
     },
     mounted() {
@@ -73,7 +75,7 @@ var pagBlog = {
             return this.$store.state.language.active == 'es';
         },
         titlePage: function() {
-            return this.$store.state.language.active == 'es';
+            return this.$store.state.language.texts.blogPageName;
         }
     }
 

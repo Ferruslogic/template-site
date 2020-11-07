@@ -36,7 +36,13 @@ AppSetting.languages = {
         "darkModeOn": "Dark Mode On",
         "darkModeOff": "Dark Mode Off",
         "postNotFound": "<h1> The publication could not be accessed: </h1><br><ul><li>Check your connection.</li><li> Try switching languages.</li><li>If you still cannot access this publication, please report it to support @ferruslogic.com.</li></ul>",
-        "toFollowIn": 'FerrusLogic in'
+        "toFollowIn": 'FerrusLogic in',
+        "homePageName": "Home",
+        "projectsPageName": "Projects",
+        "contactPageName": "Contact Us",
+        "aboutPageName": "About",
+        "blogPageName": "Blog",
+        "textContact": "<p class=\"pa-2 d-flex display-1\">Let’s Start a Conversation</p><p class=\"pa-2 d-flex\">Use the form below to drop us an e-mail.<br>Your email address will not be disclosed or shared with third parties.</p>"
     },
     "es": {
         "appName": "FerrusLogic S.A",
@@ -68,7 +74,15 @@ AppSetting.languages = {
         "darkModeOn": "Activar modo oscuro",
         "darkModeOff": "Desactivar modo oscuro",
         "postNotFound": " <h1>No se pudo acceder a la publicación:</h1><br><ul><li>Compruebe su conexión.</li><li>Pruebe cambiar de idioma.</li><li>Si siguen sin poder acceder a esta publicación repórtelo a soporte@ferruslogic.com.</li></ul>",
-        "toFollowIn": 'FerrusLogic en'
+        "toFollowIn": 'FerrusLogic en',
+        "homePageName": "Inicio",
+        "projectsPageName": "Proyectos",
+        "contactPageName": "Contáctenos",
+        "aboutPageName": "Acerca de",
+        "blogPageName": "Blog",
+        "textContact": "<p class = \"pa-2 d-flex display-1 \"> Comencemos una conversación </p> <p class =\" pa-2 d-flex \"> Utilice el siguiente formulario para enviarnos un correo electrónico. <br> Su dirección de correo electrónico no será divulgada ni compartida con terceros. </p>"
+
+
 
     }
 };

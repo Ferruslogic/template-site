@@ -1,5 +1,17 @@
 var pageContact = {
     template: `
+<div>
+      <base-page-title
+            :title="titlePage"
+      />
+
+      <div class="v-responsive mx-auto title font-weight-light mb-8" style="max-width: 720px;">
+          <div class="v-responsive__content">
+
+          <p v-html="text"> </p>
+
+          </div>
+        </div>
     <v-card
     class="mx-auto pa-4"
     max-width="500"
@@ -60,6 +72,7 @@ var pageContact = {
 
         </v-form>
     </v-card>
+    </div>
     `,
 
 
@@ -80,6 +93,7 @@ var pageContact = {
             v => !!v || 'Message is required',
             v => (v && v.length <= 512) || 'Message must be less than 512 characters',
         ],
+        htmlp: ""
     }),
 
     methods: {
@@ -107,6 +121,14 @@ var pageContact = {
         },
 
     },
+    computed: {
+        titlePage: function() {
+            return this.$store.state.language.texts.contactPageName;
+        },
+        text: function() {
+            return this.$store.state.language.texts.textContact;
+        }
+    }
 
 
 

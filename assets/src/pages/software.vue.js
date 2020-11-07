@@ -1,6 +1,11 @@
 var pageSoftware = {
     template: `
     <div>
+
+    <base-page-title
+      :title="titlePage"
+    />
+
     <v-item-group>
     <v-container>
       <v-row>
@@ -72,6 +77,9 @@ var pageSoftware = {
         },
         loading: function() {
             return this.$store.state.loaded
+        },
+        titlePage: function() {
+            return this.$store.state.language.texts.projectsPageName;
         }
     }
 };

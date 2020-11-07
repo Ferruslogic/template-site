@@ -2,7 +2,9 @@ var pageAbout = {
     template: `
     <div>
    <div class="container text-center">
-       <base-page-title />
+       <base-page-title
+        :title="titlePage"
+       />
 
         <div class="v-responsive mx-auto title font-weight-light mb-8" style="max-width: 720px;"><div class="v-responsive__content">
             Vuetify is the #1 component library for Vue.js and has been in active development since 2016. The goal of the project is to provide users with everything that is needed to build rich and engaging web applications using the Material Design specification. It accomplishes that with a consistent update cycle, Long-term Support (LTS) for previous versions, responsive community engagement, a vast ecosystem of resources and a dedication to quality components.
@@ -12,5 +14,11 @@ var pageAbout = {
               Vuetify Documentation
             </span></span></a></div>
     </div>
-`
+`,
+    computed: {
+        titlePage: function() {
+            return this.$store.state.language.texts.aboutPageName;
+        }
+    }
+
 };
