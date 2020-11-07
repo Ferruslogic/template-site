@@ -277,12 +277,7 @@ Vue.component('base-page-title', {
     template: `
     <div class="container text-center">
         <h2 class="display-2 font-weight-bold mb-3"> {{ title }}</h2>
-        <div class="v-responsive mx-auto mb-8" style="width: 56px;">
-            <div class="v-responsive__content">
-                <hr role="separator" aria-orientation="horizontal" class="mb-1 v-divider theme--light">
-                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
-            </div>
-        </div>
+        <base-separator />
     </div>
     `,
     props: {
@@ -293,6 +288,18 @@ Vue.component('base-page-title', {
     },
 });
 
+Vue.component('base-separator', {
+    template: `
+    <div>
+        <div class="v-responsive mx-auto mb-8" style="width: 56px;">
+            <div class="v-responsive__content">
+                <hr role="separator" aria-orientation="horizontal" class="mb-1 v-divider theme--light">
+                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+            </div>
+        </div>
+    </div>
+    `
+})
 
 Vue.component('base-grid-product', {
     template: `
@@ -362,7 +369,7 @@ Vue.component('base-grid-product', {
     props: {
         imageURL: {
             type: String,
-            default: "assets/public/images/logo.png"
+            default: "https://picsum.photos/350/165?random"
         },
         price: {
             type: String,

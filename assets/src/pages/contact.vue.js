@@ -106,8 +106,8 @@ var pageContact = {
 
         submit() {
             this.$refs.form.validate();
-
             API_submitEmail(this.name, this.email, this.message);
+            this.$refs.form.reset()
         },
 
         validate() {

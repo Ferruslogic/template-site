@@ -1,17 +1,19 @@
 [{
-    "id": "Drag Drop Files Into LiveCode IDE",
+    "id": "DragDropFilesIntoLiveCodeIDE",
     "downloadLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE/archive/master.zip",
-    "repoLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE",
+    "repoLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE.",
     "image": "",
     "price": "00.00",
     "en": {
         "docLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE/blob/master/README.md",
         "description": "",
-        "Tag": "LiveCode Script, Library"
+        "Tag": "LiveCode Script, Library",
+        "label": "Drag drop files into LiveCode IDE"
     },
     "es": {
         "docLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE/blob/master/LEEME.md",
         "description": "",
-        "Tag": "LiveCode Script, Biblioteca"
+        "Tag": "LiveCode Script, Biblioteca",
+        "label": "Arrastre y suelte archivos en LiveCode IDE."
     }
 }]

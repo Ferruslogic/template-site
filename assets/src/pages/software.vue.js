@@ -19,7 +19,7 @@ var pageSoftware = {
 
                     <div v-if="locate">
                           <base-grid-product
-                            :softwareName ="product.id"
+                            :softwareName ="product.es.label"
                             :price ="product.price"
                             :description ="product.es.description"
                             :softwareTag ="product.es.Tag"
@@ -32,7 +32,7 @@ var pageSoftware = {
 
                       <div v-else>
                             <base-grid-product
-                            :softwareName ="product.id"
+                            :softwareName ="product.en.label"
                             :price ="product.price"
                             :description ="product.en.description"
                             :softwareTag ="product.en.Tag"

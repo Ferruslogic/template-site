@@ -132,7 +132,8 @@ async function API_getProjectsList() {
 function API_submitEmail(pName, pEmail, pMessage) {
     let status = 200;
 
-    fetch(`${baseUrlAPI}mail.php`, {
+  //  fetch(`${baseUrlAPI}mail.php`, {
+    fetch(`./api/mail.php`, {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
