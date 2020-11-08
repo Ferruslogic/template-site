@@ -1,4 +1,5 @@
 var pageContact = {
+    store,
     template: `
 <div>
       <base-page-title
@@ -40,21 +41,17 @@ var pageContact = {
 
 
           <v-textarea
-                  v-model="message"
-                  :rules="messageRules"
-                  color="teal"
-                  required
-                >
-                  <template v-slot:label>
-                    <div>
-                      Message
-                    </div>
-                  </template>
-                </v-textarea>
-
-
-
-
+              v-model="message"
+                :rules="messageRules"
+                color="teal"
+                required
+              >
+                <template v-slot:label>
+                  <div>
+                    Message
+                  </div>
+                </template>
+          </v-textarea>
 
 
         <v-btn
@@ -72,6 +69,8 @@ var pageContact = {
 
         </v-form>
     </v-card>
+
+    <snackbar />
     </div>
     `,
 
@@ -104,10 +103,13 @@ var pageContact = {
 
         },
 
-        submit() {
-            this.$refs.form.validate();
-            API_submitEmail(this.name, this.email, this.message);
-            this.$refs.form.reset()
+        async submit() {
+            let validate = this.$refs.form.validate();
+            if (validate === true) {
+                let status = await API_submitEmail(this.name, this.email, this.message);
+                this.showAlert(status, validate);
+            };
+            this.$refs.form.reset();
         },
 
         validate() {
@@ -120,6 +122,23 @@ var pageContact = {
             this.$refs.form.resetValidation()
         },
 
+        showAlert(status, validate) {
+            this.$store.state.alert = true;
+
+            if (status === 200) {
+                this.$store.state.alertText = this.$store.state.language.texts.sendMail;
+                this.$store.state.alertType = "success";
+            } else {
+                this.$store.state.alertText = this.$store.state.language.texts.notSendMail;
+                this.$store.state.alertType = "error";
+            }
+
+
+            setTimeout(() => {
+                this.$store.state.alert = false;
+            }, 3000)
+
+        }
     },
     computed: {
         titlePage: function() {

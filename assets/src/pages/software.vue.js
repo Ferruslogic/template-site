@@ -26,6 +26,7 @@ var pageSoftware = {
                             :documentLink ="product.es.docLink"
                             :codeLink ="product.repoLink"
                             :downloadLink ="product.downloadLink"
+                            :imageURL = "product.image"
 
                           />
                       </div>
@@ -39,6 +40,7 @@ var pageSoftware = {
                             :documentLink ="product.en.docLink"
                             :codeLink ="product.repoLink"
                             :downloadLink ="product.downloadLink"
+                            :imageURL = "product.image"
                           />
                       </div>
 

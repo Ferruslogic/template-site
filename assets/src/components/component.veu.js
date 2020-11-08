@@ -74,3 +74,37 @@ Vue.component('loading-page', {
         </div> `,
     props: { overlay: true, }
 });
+
+
+Vue.component('snackbar', {
+    store,
+    template: `
+        <div>
+
+
+            <v-alert
+                :value="showAlert"
+                :type="alertType"
+                dismissible
+                border="left"
+                transition="scale-transition"
+                width="500"
+                class ="frl-alert   "
+            >
+                {{ alertText }}
+            </v-alert>
+        </div>
+    `,
+    computed: {
+        showAlert: function() {
+            return this.$store.state.alert;
+        },
+        alertType: function() {
+            return this.$store.state.alertType;
+        },
+        alertText: function() {
+            return this.$store.state.alertText;
+        },
+    }
+
+});

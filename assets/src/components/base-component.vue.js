@@ -136,7 +136,6 @@ Vue.component('base-app-top-bar', {
     template: `
         <div>
             <div id="top-bar">
-                <!--   the backtotop component -->
                 <v-app-bar elevate-on-scroll class="overflow-y-auto v-app-bar--fixed "
                     style="z-index: 1008;">
                     <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
@@ -366,6 +365,7 @@ Vue.component('base-grid-product', {
     </v-hover>
     </div>
     `,
+
     props: {
         imageURL: {
             type: String,

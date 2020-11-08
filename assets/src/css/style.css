@@ -4,6 +4,13 @@
     position: fixed;
 }
 
+.frl-alert {
+    width: 500px;
+    position: fixed;
+    bottom: 105px;
+    right: 17px;
+}
+
 @media (prefers-color-scheme: dark) {
     .dark-scheme {
         display: none;

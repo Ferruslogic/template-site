@@ -13,7 +13,10 @@ const state = {
             'account-group',
             'contacts'
         ]
-    }
+    },
+    alert: false,
+    alertType: 'success',
+    alertText: 'message',
 };
 
 const getters = {

@@ -2,7 +2,7 @@
     "id": "DragDropFilesIntoLiveCodeIDE",
     "downloadLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE/archive/master.zip",
     "repoLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE.",
-    "image": "assets/public/images/softwares/dragDrogFileIntoIDE.webp",
+    "image": "../../../assets/public/images/softwares/dragDrogFileIntoIDE.webp",
     "price": "00.00",
     "en": {
         "docLink": "https://github.com/Ferruslogic/frlDragDropFilesIntoIDE/blob/master/README.md",

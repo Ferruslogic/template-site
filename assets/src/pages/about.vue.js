@@ -1,6 +1,7 @@
 var pageAbout = {
     template: `
     <div>
+
         <div class="container text-center">
 
         <base-page-title

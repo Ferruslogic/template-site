@@ -2,7 +2,8 @@ var htmlPost = this;
 
 var singleBlog = {
     template: `
-    <div>
+    <div  class="container">
+
         <v-container>
         <div v-if="error">
             <v-alert
@@ -15,11 +16,13 @@ var singleBlog = {
                 <p v-html="htmlNfp"> </p>
             </v-alert>
         </div>
-        <div v-else class="container fluid px-0">
-
-            <span v-html="html"></span>
+        <div v-else>
+             <v-card class="fluid" >
+              <div v-html="html" style="padding:28px !important;"></div>
+            </v-card>
         </div>
     </v-container>
+
     </div>
     `,
     data: () => ({

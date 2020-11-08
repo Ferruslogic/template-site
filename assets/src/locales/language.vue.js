@@ -45,7 +45,9 @@ AppSetting.languages = {
         "textContact": "<p class=\"pa-2 d-flex display-1\">Let’s Start a Conversation</p><p class=\"pa-2 d-flex\">Use the form below to drop us an e-mail.<br>Your email address will not be disclosed or shared with third parties.</p>",
         "textAbout": "<p>Once upon a time there were a couple of children who, like all children, dreamed that they had superpowers. Those kids were growing up and their dreams of having super powers to help other people too. But wait, we don't need superpowers to help other people. We just need to have a good heart and the desire to do it. What better way to help other people than by being teachers, so that they can help others to have the tools to fight for their dreams. </p><p> Having achieved this goal and after several years dedicated to teaching at different educational levels. One day they discovered to their amazement that they had developed the closest thing to a superpower. Well, they could talk to computers and order them to do cool things that helped people in their day-to-day lives. But knowledge is worthless if it is not shared. So they decided to create this blog to help others achieve their dreams and be their own superheroes.</p>",
         "textTeam": "Our Team",
-        "softwareDeveloper": "Software developer"
+        "softwareDeveloper": "Software developer",
+        "sendMail": "We have received your message, we will contact you as soon as possible. Thank you very much for your time.",
+        "notSendMail": "Your message has not been delivered. Please try again in a couple of minutes."
     },
     "es": {
         "appName": "FerrusLogic S.A",
@@ -86,7 +88,10 @@ AppSetting.languages = {
         "textContact": "<p class = \"pa-2 d-flex display-1 \"> Comencemos una conversación </p> <p class =\" pa-2 d-flex \"> Utilice el siguiente formulario para enviarnos un correo electrónico. <br> Su dirección de correo electrónico no será divulgada ni compartida con terceros. </p>",
         "textAbout": "<p>Érase una vez un par de niños que, como todos los niños, soñaban que tenían superpoderes. Esos niños estaban creciendo y sus sueños de tener superpoderes para ayudar a otras personas también. Pero espera, no necesitamos superpoderes para ayudar a otras personas. Solo necesitamos tener un buen corazón y ganas de hacerlo. Qué mejor manera de ayudar a otras personas que siendo maestros, para que puedan ayudar a otros a tener las herramientas para luchar por sus sueños. </p><p> Habiendo alcanzado este objetivo y después de varios años dedicados a la docencia en diferentes niveles educativos. Un día descubrieron para su asombro que habían desarrollado lo más parecido a un superpoder. Bueno, podían hablar con las computadoras y darles órdenes para que hicieran cosas geniales que ayudaran a las personas en su día a día. Pero el conocimiento no tiene valor si no se comparte. Así que decidieron crear este blog para ayudar a otros a alcanzar sus sueños y ser sus propios superhéroes.</p>",
         "textTeam": "Nuestro equipo",
-        "softwareDeveloper": "Desarrollador de software"
+        "softwareDeveloper": "Desarrollador de software",
+        "sendMail": "Ya tenemos su correo, le daremos respuesta lo ante posible. Muchas gracias por su tiempo.",
+        "notSendMail": "No se ha podido enviar el mensaje. Intente de nuevo en unos minutos."
+
 
     }
 };

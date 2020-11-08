@@ -14,7 +14,7 @@ async function API_getPostList() {
         })
         .then(response => {
             status = response.status;
-            return response.json()
+            return response.json();
         })
         .then(data => {
             saveIntoStorage('posts', data, true);
@@ -27,7 +27,6 @@ async function API_getPostList() {
             };
             return error;
         });
-
 
     this.AppSetting.posts = result;
     saveIntoStorage('numPost', result.length);
@@ -72,12 +71,12 @@ function API_getPostView(pPostId) {
         })
         .then(response => {
             status = response.status;
-            return response.text()
+            return response.text();
         })
         .then(data => {
             saveIntoStorage(kPostId, data, true);
-            tem.data = data
-            tem.status = status
+            tem.data = data;
+            tem.status = status;
             return tem;
         })
         .catch(error => {
@@ -104,7 +103,7 @@ async function API_getProjectsList() {
         })
         .then(response => {
             status = response.status;
-            return response.json()
+            return response.json();
         })
         .then(data => {
             saveIntoStorage('projects', data, true);
@@ -129,11 +128,10 @@ async function API_getProjectsList() {
 
 
 
-function API_submitEmail(pName, pEmail, pMessage) {
+async function API_submitEmail(pName, pEmail, pMessage) {
     let status = 200;
 
-  //  fetch(`${baseUrlAPI}mail.php`, {
-    fetch(`./api/mail.php`, {
+    let result = await fetch(`./api/mail.php`, {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
@@ -143,7 +141,9 @@ function API_submitEmail(pName, pEmail, pMessage) {
             })
         })
         .then(response => {
-            status = response.status;
+            status = response.status
             return status;
         });
+
+    return result;
 };
