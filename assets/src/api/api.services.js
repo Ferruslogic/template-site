@@ -17,19 +17,13 @@ async function API_getPostList() {
             return response.json();
         })
         .then(data => {
-            saveIntoStorage('posts', data, true);
             return data;
         })
         .catch(error => {
-            let inCache = getFromStorage('posts', true);
-            if (inCache != null) {
-                return inCache;
-            };
             return error;
         });
 
     this.AppSetting.posts = result;
-    saveIntoStorage('numPost', result.length);
     return result;
 }
 
@@ -74,16 +68,11 @@ function API_getPostView(pPostId) {
             return response.text();
         })
         .then(data => {
-            saveIntoStorage(kPostId, data, true);
             tem.data = data;
             tem.status = status;
             return tem;
         })
         .catch(error => {
-            let inCache = getFromStorage(kPostId, true);
-            if (inCache != null && inCache != undefined) {
-                return inCache;
-            };
             return error;
         });
 
@@ -106,20 +95,14 @@ async function API_getProjectsList() {
             return response.json();
         })
         .then(data => {
-            saveIntoStorage('projects', data, true);
             return data;
         })
         .catch(error => {
-            let inCache = getFromStorage('projects', true);
-            if (inCache != null) {
-                return inCache;
-            };
             return error;
         });
 
 
     this.AppSetting.posts = result;
-    saveIntoStorage('numProjects', result.length);
     return result;
 }
 
