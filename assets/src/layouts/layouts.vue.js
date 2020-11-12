@@ -1,7 +1,6 @@
 /* layout */
 Vue.component('main-layout', {
     template: `
-
     <div>
         <v-app>
             <base-app-top-bar />
@@ -14,6 +13,7 @@ Vue.component('main-layout', {
                 </v-container>
 
             </v-main>
+
             <base-footer />
 
         </v-app>

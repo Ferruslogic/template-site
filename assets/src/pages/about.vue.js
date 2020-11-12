@@ -73,7 +73,7 @@ var pageAbout = {
 
             <base-separator />
 
-        <a href="#/contact" class="v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--large grey--text">
+        <a href="#/contact"  @click="toTop" class="v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--large grey--text">
         <span class="v-btn__content">
             <span class="grey--text text--darken-1 font-weight-bold">
                 {{ contactUs }}
@@ -84,6 +84,11 @@ var pageAbout = {
         </div>
     </div>
 `,
+    methods: {
+        toTop() {
+            this.$vuetify.goTo(0)
+        }
+    },
     computed: {
         locate: function() {
             return this.$store.state.language.active == 'es';
